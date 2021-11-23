@@ -1,0 +1,76 @@
+{
+    "name": "kronelab/vaporbot2020",
+    "timeout": 10000,
+    "connector": false,
+    "events": {
+      "functions/events/discord/bot_mention.js": {
+        "name": "discord.bot_mention"
+      },
+      "functions/events/autocode/self/deployed.js": {
+        "name": "autocode.self.deployed"
+      },
+      "functions/events/discord/message/create.js": {
+        "name": "discord.message.create"
+      },
+      "functions/events/discord/cmd_aesthetic_gif.js": {
+        "name": "discord.command",
+        "subtype": {
+          "command": "aesthetic_gif"
+        }
+      },
+      "functions/events/discord/cmd_explore_dreams.js": {
+        "name": "discord.command",
+        "subtype": {
+          "command": "explore_dreams"
+        }
+      },
+      "functions/events/discord/cmd_explore_the_universe.js": {
+        "name": "discord.command",
+        "subtype": {
+          "command": "explore_the_universe"
+        }
+      },
+      "functions/events/discord/cmd_happy.js": {
+        "name": "discord.command",
+        "subtype": {
+          "command": "happy"
+        }
+      },
+      "functions/events/discord/cmd_sad.js": {
+        "name": "discord.command",
+        "subtype": {
+          "command": "sad"
+        }
+      },
+      "functions/events/discord/cmd_smile.js": {
+        "name": "discord.command",
+        "subtype": {
+          "command": "smile"
+        }
+      },
+      "functions/events/discord/cmd_angry.js": {
+        "name": "discord.command",
+        "subtype": {
+          "command": "angry"
+        }
+      },
+      "functions/events/discord/cmd_blushy.js": {
+        "name": "discord.command",
+        "subtype": {
+          "command": "blushy"
+        }
+      },
+      "functions/events/discord/cmd_displeased.js": {
+        "name": "discord.command",
+        "subtype": {
+          "command": "displeased"
+        }
+      },
+      "functions/events/discord/bot/playback/finished.js": {
+        "name": "discord.bot.playback.finished"
+      },
+      "functions/events/discord/voice/state/update.js": {
+        "name": "discord.voice.state.update"
+      }
+    }
+  }
