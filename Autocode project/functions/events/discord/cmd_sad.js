@@ -13,7 +13,13 @@ const CommandContent = [
   'https://cdn40.picsart.com/174293536000202.gif?to=crop&type=webp&r=-1x-1&q=95',
   'https://c.tenor.com/VTqa0X2W6LUAAAAC/80s-running.gif',
   'https://c.tenor.com/Mlgi6bkVkG8AAAAC/emotional-cry.gif',
-  'https://c.tenor.com/Foyauwn9foIAAAAC/crying-anime.gif'
+  'https://c.tenor.com/Foyauwn9foIAAAAC/crying-anime.gif',
+  'https://c.tenor.com/Jphp6FfLOXoAAAAC/anime-sad.gif',
+  'https://c.tenor.com/cKJS_DQCP08AAAAC/sad-black.gif',
+  'https://c.tenor.com/Um4n_9H39FUAAAAd/anime-sad.gif',
+  'https://c.tenor.com/J_W8S5Y1GSsAAAAC/triste-sad.gif',
+  'https://c.tenor.com/16fRppDqJzcAAAAC/sad-anime.gif',
+  'https://c.tenor.com/thw0X00MurYAAAAC/anime-crying.gif'
 ]
 
 await lib.discord.commands['@0.0.0'].create({

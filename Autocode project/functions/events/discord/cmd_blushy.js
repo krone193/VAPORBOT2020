@@ -16,7 +16,8 @@ const CommandContent = [
   'https://c.tenor.com/4JBrfqDM83UAAAAC/smile-cute.gif',
   'https://c.tenor.com/e5GIh587OssAAAAC/anime-blushing.gif',
   'https://c.tenor.com/fapsneQ0NTkAAAAd/embarrassed-embarrasment.gif',
-  'https://c.tenor.com/l-ItaKTK6hgAAAAC/miku-anime.gif'
+  'https://c.tenor.com/l-ItaKTK6hgAAAAC/miku-anime.gif',
+  'https://i.pinimg.com/originals/e4/3b/87/e43b871792e070252eaf22bd3e9dc8f6.gif'
 ]
 
 await lib.discord.commands['@0.0.0'].create({

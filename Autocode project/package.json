@@ -1,9 +1,9 @@
 {
-    "name": "vaporbot2020",
-    "author": "Jacob Lee",
-    "publish": false,
-    "dependencies": {
-      "lib": "latest",
-      "ytdl-core": "^4.9.1"
-    }
+  "name": "vaporbot2020",
+  "author": "Jacob Lee",
+  "publish": false,
+  "dependencies": {
+    "lib": "latest",
+    "ytdl-core": "^4.9.1"
   }
+}
