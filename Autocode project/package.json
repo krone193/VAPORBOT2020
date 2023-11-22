@@ -4,6 +4,6 @@
   "publish": false,
   "dependencies": {
     "lib": "latest",
-    "ytdl-core": "^4.9.1"
+    "ytdl-core": "^4.9.2"
   }
 }

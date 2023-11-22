@@ -1,7 +1,6 @@
 const lib = require('lib')({token: process.env.STDLIB_SECRET_TOKEN});
+const vapor = require('../../../../helpers/vaporfunc.js');
 
-const CommandName = 'aesthetic_gif';
-const CommandDescription = 'enlight your eyes with some ░A░E░S░T░H░E░T░I░C░ gifs';
 const CommandContent = [
   'http://68.media.tumblr.com/9c482ecfcda309f629ac69168f2c22c2/tumblr_oh44bi2bp91vj2gx4o1_500.gif',
   'http://68.media.tumblr.com/c7bbbfbfd679a3fe7b8036fff709e937/tumblr_oievzj6Xng1sf9678o1_400.gif',
@@ -13,6 +12,7 @@ const CommandContent = [
   'http://78.media.tumblr.com/a2998706b5d2bab367abdeb57f58e689/tumblr_p0z72hXshe1tlkklno1_500.gif',
   'http://68.media.tumblr.com/9e9c3f70954ac563e568e0f4001e481a/tumblr_odo23fF5Lz1snkq37o1_500.gif',
   'https://c.tenor.com/hwjqo-O16cUAAAAC/vaporwave.gif',
+  
   'https://c.tenor.com/0TiBV8KRJ-YAAAAd/vaporwave-lord-desktop.gif',
   'https://c.tenor.com/QRnlS5Lxvg8AAAAC/vaporwave-aesthetic.gif',
   'https://c.tenor.com/-sazR0Z_pB8AAAAC/horusultra-vaporwave.gif',
@@ -23,17 +23,19 @@ const CommandContent = [
   'https://c.tenor.com/81YAPg8gyBAAAAAd/aesthetic-vaporwave.gif',
   'https://c.tenor.com/kbAXHrIp5agAAAAC/vaporwave-aesthetic.gif',
   'https://c.tenor.com/KfUVTnbtS0oAAAAC/paradise-holiday.gif',
+  
   'https://c.tenor.com/zwhit72ZM08AAAAC/vaporwave-seapunk.gif',
-  'https://c.tenor.com/fJQffXDzjqUAAAAC/anime-hibike-euphonium.gif'
+  'https://c.tenor.com/fJQffXDzjqUAAAAC/anime-hibike-euphonium.gif',
+  'https://pa1.narvii.com/7694/496f14b417db4c0bd2f540e75b588104a1a3ab99r1-500-260_hq.gif',
+  'https://64.media.tumblr.com/dda2b45229b5bb77b38f0c18f2cf13cb/tumblr_inline_p79hw9w1CH1seuc55_540.gifv',
+  'https://c.tenor.com/b9Rqi7jQNdAAAAAC/red.gif'
 ]
 
-await lib.discord.commands['@0.0.0'].create({
-  guild_id: `${context.params.event.guild_id}`,
-  name: CommandName,
-  description: CommandDescription
-});
+await vapor.sendgif(
+  context.params.event,
+  CommandContent,
+  false,
+  Number(`${process.env.EMBED_COLOUR}`)
+);
 
-await lib.discord.channels['@0.2.0'].messages.create({
-  channel_id: `${context.params.event.channel_id}`,
-  content: CommandContent[Math.floor(Math.random() * CommandContent.length)]
-});
+return 0;
