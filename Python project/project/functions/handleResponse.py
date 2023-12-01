@@ -8,7 +8,9 @@
 # --- Imports --------------------------------------------------------- #
 # --------------------------------------------------------------------- #
 import discord
-import main
+import math
+from random import random
+from main import env
 
 
 # --- Variables ------------------------------------------------------- #
@@ -29,17 +31,35 @@ def handle_response(message) -> str:
     return ''
 
 
-def mention(user) -> discord.Embed:
-    embed = discord.Embed(colour=int(main.env['dev']['EMBED_COLOUR'], 16),
-                          title='【Ｖ Ａ Ｐ Ｏ Ｒ Ｂ Ｏ Ｔ ２ ０ ２ ０】',
-                          type='rich', description="Hello there!\n" +
-                                                    "I'm a bot powered by raw A̸͎̦͒́̿ ̷͖̺̿̃Ḙ̶̅͌ ̸̻̬͍̐̕S̴͓̼̪͊ ̴̺̦̈́T̶͇̈̈́͝ ̵̦̊̿H̷̳̟̥̆̂̓ ̵̞̓̒E̸͔̻̭̋̔ ̶̲̻͆T̴̨̳̝͗ ̶̟̮̮̽Ị̷̜̯͋͗͠ ̷̢̛͎̭̿C̷̝͊̃ ̵̩̤̤̊̈́S̸̨͇̍.\n" +
-                                                    "and pure ᑎOᔕTᗩᒪGIᗩ"
+def embedf(title, description, user, image, thumbnail) -> discord.Embed:
+    embed = discord.Embed(colour=int(env['dev']['EMBED_COLOUR'], 16),
+                          title=title,
+                          type='rich', description=description
                           )
     embed.set_author(name=user.name, icon_url=user.avatar)
-    embed.set_image(url=main.env['dev']['MENTION_GIF'])
-    embed.set_thumbnail(url=main.env['dev']['THUMBNAIL_PICTURE'])
+    embed.set_image(url=image)
+    embed.set_thumbnail(url=thumbnail)
     return embed
+
+
+def mention(user) -> discord.Embed:
+    return embedf(title='【Ｖ Ａ Ｐ Ｏ Ｒ Ｂ Ｏ Ｔ ２ ０ ２ ０】',
+                  description="Hello there!\n" +
+                              "I'm a bot powered by raw A̸͎̦͒́̿ ̷͖̺̿̃Ḙ̶̅͌ ̸̻̬͍̐̕S̴͓̼̪͊ ̴̺̦̈́T̶͇̈̈́͝ ̵̦̊̿H̷̳̟̥̆̂̓ ̵̞̓̒E̸͔̻̭̋̔ ̶̲̻͆T̴̨̳̝͗ ̶̟̮̮̽Ị̷̜̯͋͗͠ ̷̢̛͎̭̿C̷̝͊̃ ̵̩̤̤̊̈́S̸̨͇̍.\n" +
+                              "and pure ᑎOᔕTᗩᒪGIᗩ",
+                  user=user,
+                  image=env['dev']['MENTION_GIF'],
+                  thumbnail=env['dev']['THUMBNAIL_PICTURE'])
+
+
+# --------------------------------------------------------------------- #
+def embed_command_response(interaction, data) -> discord.Embed:
+    index = math.floor(random() * len(data))
+    return embedf(title='',
+                  description='',
+                  user=interaction.user,
+                  image=data[index],
+                  thumbnail='')
 
 
 # --------------------------------------------------------------------- #

@@ -8,16 +8,17 @@
 # --- Imports --------------------------------------------------------- #
 # --------------------------------------------------------------------- #
 import discord
-from discord import app_commands
 from discord.ext import commands
-import main
+import json
+from main import cmd
+from main import env
 import project.functions.sendMessage as funcMessaging
 import project.functions.handleResponse as funcHandling
 
 
 # --- SW Versions ----------------------------------------------------- #
 # --------------------------------------------------------------------- #
-SW_VER = "v0.1.0.0"
+SW_VER = "v0.1.1.0"
 # --- Changelog ------------------------------------------------------- #
 # vxx.xx.xx ----------------------------------------------------------- #
 #   .                                                                   #
@@ -29,11 +30,47 @@ SW_VER = "v0.1.0.0"
 
 # --- Defines --------------------------------------------------------- #
 # --------------------------------------------------------------------- #
+CommandsLiszt = [
+    'aesthetic',
+    'angry',
+    'ban',
+    'headpat',  # tmp placing
+    'happy',    # tmp placing
+    'blushy',
+    'coffee',
+    'displeased',
+    'explore_galaxies',
+    'good_morning',
+    # 'happy',
+    # 'headpat',
+    'hug',
+    'laugh',
+    'opsy',
+    'pause',
+    'please',
+    'rainy_mood',
+    'resume',
+    'sad',
+    'shifting_dreams',
+    'smile',
+    'smirk',
+    'sob',
+    'sorry',
+    'swish'
+]
+
+
 # --- Variables ------------------------------------------------------- #
 # --------------------------------------------------------------------- #
 # --- Classes --------------------------------------------------------- #
 # --------------------------------------------------------------------- #
+async def command_embed(interaction: discord.Interaction, payload: json):
+    embed = funcHandling.embed_command_response(interaction, payload['DATA'])
+    await interaction.response.send_message(embed=embed, ephemeral=False)
+
+
 def events(bot):
+    # ----------------------------------------------------------------- #
     @bot.event
     async def on_ready():
         print(f'{bot.user} is now running')
@@ -43,16 +80,37 @@ def events(bot):
         except Exception as err:
             print(err)
 
-    @bot.tree.command(name='hello')
-    async def hello(interaction: discord.Interaction):
-        await interaction.response.send_message(f"Hey {interaction.user.mention}! This is a slash command!",
-                                                ephemeral=False)
+    # ----------------------------------------------------------------- #
+    @bot.tree.command(name=cmd[CommandsLiszt[0]]['NAME'], description=cmd[CommandsLiszt[0]]['DESC'])
+    async def slash_command_0(interaction: discord.Interaction):
+        await command_embed(interaction, cmd[CommandsLiszt[0]])
 
+    # ----------------------------------------------------------------- #
+    @bot.tree.command(name=cmd[CommandsLiszt[1]]['NAME'], description=cmd[CommandsLiszt[1]]['DESC'])
+    async def slash_command_1(interaction: discord.Interaction):
+        await command_embed(interaction, cmd[CommandsLiszt[1]])
+
+    # ----------------------------------------------------------------- #
+    @bot.tree.command(name=cmd[CommandsLiszt[2]]['NAME'], description=cmd[CommandsLiszt[2]]['DESC'])
+    async def slash_command_2(interaction: discord.Interaction):
+        await command_embed(interaction, cmd[CommandsLiszt[2]])
+
+    # ----------------------------------------------------------------- #
+    @bot.tree.command(name=cmd[CommandsLiszt[3]]['NAME'], description=cmd[CommandsLiszt[3]]['DESC'])
+    async def slash_command_3(interaction: discord.Interaction):
+        await command_embed(interaction, cmd[CommandsLiszt[3]])
+
+    # ----------------------------------------------------------------- #
+    @bot.tree.command(name=cmd[CommandsLiszt[4]]['NAME'], description=cmd[CommandsLiszt[4]]['DESC'])
+    async def slash_command_4(interaction: discord.Interaction):
+        await command_embed(interaction, cmd[CommandsLiszt[4]])
+
+    # ----------------------------------------------------------------- #
     @bot.event
     async def on_message(message):
         username = str(message.author)
         content = str(message.content)
-        channel = str(message.channel)
+        # channel = str(message.channel)
 
         if username == bot.user:
             return
@@ -85,13 +143,13 @@ def events(bot):
 
 # --- Main ------------------------------------------------------------ #
 # --------------------------------------------------------------------- #
-def run(env):
+def run():
     # init intents
     intents = discord.Intents.default()
     intents.message_content = True
 
     # create Discord Client
-    bot = commands.Bot(command_prefix=commands.when_mentioned_or('/'), intents=intents)
+    bot = commands.Bot(command_prefix=commands.when_mentioned_or("/"), intents=intents)
 
     # bot event handling
     events(bot)
