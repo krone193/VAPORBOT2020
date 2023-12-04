@@ -15,11 +15,11 @@ import project.VAPORBOT2020 as VAPORBOT2020
 # --------------------------------------------------------------------- #
 # --- Variables ------------------------------------------------------- #
 # --------------------------------------------------------------------- #
-fenv = open('env.json')
+fenv = open('env.json', encoding="utf8")
 env = json.load(fenv)
 fenv.close()
 # --------------------------------------------------------------------- #
-fcmd = open('commands.json')
+fcmd = open('commands.json', encoding="utf8")
 cmd = json.load(fcmd)
 fcmd.close()
 
