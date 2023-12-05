@@ -10,7 +10,8 @@
 import discord
 from discord.ext import commands
 import json
-import main
+from datetime import datetime, timedelta
+import time
 from main import cmd
 from main import env
 import project.functions.sendMessage as funcMessaging
@@ -19,7 +20,7 @@ import project.functions.handleResponse as funcHandling
 
 # --- SW Versions ----------------------------------------------------- #
 # --------------------------------------------------------------------- #
-SW_VER = "v0.1.1.0"
+SW_VER = "v0.1.2.0"
 # --- Changelog ------------------------------------------------------- #
 # vxx.xx.xx ----------------------------------------------------------- #
 #   .                                                                   #
@@ -30,6 +31,8 @@ SW_VER = "v0.1.1.0"
 
 
 # --- Defines --------------------------------------------------------- #
+# --------------------------------------------------------------------- #
+TimedEventsInterval = 1     # minutes, check if it's time for a programmed event
 # --------------------------------------------------------------------- #
 CommandsLiszt = [
     'aesthetic',
@@ -270,6 +273,43 @@ def events(bot):
             await funcMessaging.send_message(message, response, False, private)
 
 
+# ----------------------------------------------------------------- #
+def get_last_sunday(year, month) -> datetime:
+    if month == 12:
+        dt = datetime(year + 1, 1, 1, 12)
+    else:
+        dt = datetime(year, month + 1, 1, 12)
+
+    diff = 7 if dt.isoweekday() == 0 else dt.isoweekday()
+    return dt - timedelta(days=diff)
+
+
+# ----------------------------------------------------------------- #
+def dt_next_update(dt: datetime, minutes) -> datetime:
+    dest = dt + timedelta(minutes=minutes)
+    return dest.replace(second=0)
+
+
+# ----------------------------------------------------------------- #
+def on_time_events(dt: datetime):
+    # legal = get_last_sunday(dt.year, 3)
+    # solar = get_last_sunday(dt.year, 10)
+    # add_hour = 0
+
+    # match dt.month:
+    #    case 1 | 2 | 11 | 12:
+    #        add_hour = 1
+    #    case 4 | 5 | 6 | 7 | 8 | 9:
+    #        add_hour = 2
+    #    case 3:
+    #        add_hour = 1 if dt.day < legal.day else 2
+    #    case 10:
+    #        add_hour = 2 if dt.day < solar.day else 1
+
+    # dt += timedelta(hours=add_hour)
+    print(dt)
+
+
 # --- Main ------------------------------------------------------------ #
 # --------------------------------------------------------------------- #
 def run():
@@ -278,13 +318,28 @@ def run():
     intents.message_content = True
 
     # create Discord Client
-    bot = commands.Bot(command_prefix=commands.when_mentioned_or("/"), intents=intents)
+    bot = commands.Bot(command_prefix=str(commands.when_mentioned_or("/")), intents=intents)
 
     # bot event handling
     events(bot)
 
     # run VAPORBOT2020
     bot.run(env['dev']['TOKEN'])
+
+    # loop for timed events
+    dt = datetime.now()
+    dt_next = dt_next_update(dt, minutes=TimedEventsInterval)
+    print(dt.strftime("%d/%m/%Y %H:%M:%S") + " | Bot started, next wake-up at " +
+          dt_next.strftime("%d/%m/%Y %H:%M:%S"))
+    while 1:
+        dt = datetime.now()
+        if dt > dt_next:
+            dt_next = dt_next_update(dt, minutes=TimedEventsInterval)
+            print(dt.strftime("%d/%m/%Y %H:%M:%S") + " | Main loop, next wake-up at " +
+                  dt_next.strftime("%d/%m/%Y %H:%M:%S"))
+            # on_time_events(dt)
+        else:
+            time.sleep(1)
 
 
 # --------------------------------------------------------------------- #
