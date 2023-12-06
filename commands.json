@@ -1,8 +1,8 @@
 {
   "aesthetic": {
-    "NAME": "aesthetic",
-    "DESC": "enlight your eyes with some ░A░E░S░T░H░E░T░I░C░ gifs",
-    "DATA": [
+    "name": "aesthetic",
+    "desc": "enlight your eyes with some ░A░E░S░T░H░E░T░I░C░ gifs",
+    "data": [
       "http://68.media.tumblr.com/9c482ecfcda309f629ac69168f2c22c2/tumblr_oh44bi2bp91vj2gx4o1_500.gif",
       "http://68.media.tumblr.com/c7bbbfbfd679a3fe7b8036fff709e937/tumblr_oievzj6Xng1sf9678o1_400.gif",
       "https://66.media.tumblr.com/28c8017277686e5e1340420e1cca1be3/tumblr_pwr9qxlpJE1ynwbv0o1_500.gif",
@@ -31,20 +31,20 @@
       "https://64.media.tumblr.com/dda2b45229b5bb77b38f0c18f2cf13cb/tumblr_inline_p79hw9w1CH1seuc55_540.gifv",
       "https://c.tenor.com/b9Rqi7jQNdAAAAAC/red.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "angry": {
-    "NAME": "angry",
-    "DESC": "let me show 'em how pissed off you are",
-    "DATA": [
+    "name": "angry",
+    "desc": "let me show 'em how pissed off you are",
+    "data": [
       "https://c.tenor.com/X3x3Y2mp2W8AAAAC/anime-angry.gif",
       "https://c.tenor.com/ikKAd57zDEwAAAAd/anime-mad.gif",
       "https://c.tenor.com/b76QnX1XVAcAAAAC/raiva-anime.gif",
@@ -64,20 +64,20 @@
       "https://c.tenor.com/FR_k6CO0aicAAAAC/kopa22-anime.gif",
       "https://c.tenor.com/sIBmF8vS9xgAAAAC/joshiraku-hit.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "ban": {
-    "NAME": "ban",
-    "DESC": "naughty boy",
-    "DATA": [
+    "name": "ban",
+    "desc": "naughty boy",
+    "data": [
       "https://c.tenor.com/qvvKGZhH0ysAAAAC/anime-girl.gif",
       "https://c.tenor.com/Jm8JkCG3NRsAAAAC/anime-ban.gif",
       "https://c.tenor.com/8sPNImjK4KsAAAAC/hologra-hololive.gif",
@@ -89,20 +89,20 @@
       "https://data.whicdn.com/images/232487491/original.gif",
       "https://c.tenor.com/50Yz9iy_MDcAAAAC/jujutsu-kaisen.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "blushy": {
-    "NAME": "blushy",
-    "DESC": "そんなことないです (so-nn-na-ko-to-na-i-de-su)",
-    "DATA": [
+    "name": "blushy",
+    "desc": "そんなことないです (so-nn-na-ko-to-na-i-de-su)",
+    "data": [
       "https://c.tenor.com/eT_HnoX8eKoAAAAC/happy-anime.gif",
       "https://c.tenor.com/voCLgP3672MAAAAC/anime-manga.gif",
       "https://c.tenor.com/vjgGw6IEFuUAAAAC/brilho-anime.gif",
@@ -134,39 +134,39 @@
       "https://c.tenor.com/r3jQx9Wot14AAAAC/reina-kousaka-cute.gif",
       "https://c.tenor.com/nQI4bxAYjcsAAAAC/hibike.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "coffee": {
-    "NAME": "coffee",
-    "DESC": "it's always time to drink some coffee, isn't it?",
-    "DATA": [
+    "name": "coffee",
+    "desc": "it's always time to drink some coffee, isn't it?",
+    "data": [
       "https://c.tenor.com/iDy78BQ8324AAAAC/anime-smell.gif",
       "https://c.tenor.com/OQsdGc_qxyQAAAAC/anime-tea.gif",
       "https://c.tenor.com/2ztTxOV470gAAAAC/anime.gif",
       "https://c.tenor.com/j7eopdA1o1QAAAAC/k-on-azusa.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "displeased": {
-    "NAME": "displeased",
-    "DESC": "dude, uncool",
-    "DATA": [
+    "name": "displeased",
+    "desc": "dude, uncool",
+    "data": [
       "https://c.tenor.com/G_YeALOH-iAAAAAC/mao-amatsuka-mad.gif",
       "https://c.tenor.com/Ln-j0vBojk0AAAAC/pouty-anime.gif",
       "https://c.tenor.com/Jj7RpBC7U_AAAAAC/anime-girl.gif",
@@ -188,20 +188,20 @@
       "https://c.tenor.com/2hJu9gEGq9sAAAAC/shikimori-angry.gif",
       "https://c.tenor.com/oeVwCt6fPGUAAAAC/002-zero.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "explore_galaxies": {
-    "NAME": "explore_galaxies",
-    "DESC": "fasten your seatbelts and get ready for a ride across all galaxyes",
-    "DATA": [
+    "name": "explore_galaxies",
+    "desc": "fasten your seatbelts and get ready for a ride across all galaxyes",
+    "data": [
       "https://www.youtube.com/watch?v=oGWf8tQO__4",
       "https://www.youtube.com/watch?v=YP9nrR-ym3c",
       "https://www.youtube.com/watch?v=nQfBoWU3Nxw",
@@ -212,20 +212,20 @@
       "https://www.youtube.com/watch?v=_AXIOfilxi0",
       "https://www.youtube.com/watch?v=E6ZKYrAi8NQ"
     ],
-    "SUCC": {
-      "PHR": "░F░a░s░t░e░n░ ░y░o░u░r░ ░s░e░a░t░b░e░l░t░s░,░ ░r░i░d░e░r░:░ ░g░e░t░ ░r░e░a░d░y░ ░f░o░r░ ░l░i░f░t░ ░o░f░f░!░",
-      "GIF": ""
+    "success": {
+      "desc": "░F░a░s░t░e░n░ ░y░o░u░r░ ░s░e░a░t░b░e░l░t░s░,░ ░r░i░d░e░r░:░ ░g░e░t░ ░r░e░a░d░y░ ░f░o░r░ ░l░i░f░t░ ░o░f░f░!░",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "You have to believe in yourself to survive in the Universe",
-      "GIF": "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
+    "error": {
+      "desc": "You have to believe in yourself to survive in the Universe",
+      "data": "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
     }
   },
 
   "good_morning": {
-    "NAME": "good_morning",
-    "DESC": "good morning darling!",
-    "DATA": [
+    "name": "good_morning",
+    "desc": "good morning darling!",
+    "data": [
       "https://c.tenor.com/oUqKSJWeL8UAAAAC/cute-tired.gif",
       "https://c.tenor.com/NmzkpFEiNmwAAAAC/sleepy-nap.gif",
       "https://c.tenor.com/Izq6jHHDk20AAAAC/idolypride-anime.gif",
@@ -244,20 +244,20 @@
       "https://c.tenor.com/a5gKYNKn6GIAAAAC/anime-k-on.gif",
       "https://c.tenor.com/PQt3WyEZZwQAAAAC/code-geass-good-morning.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "happy": {
-    "NAME": "happy",
-    "DESC": "it's always nice to share your good vibes",
-    "DATA": [
+    "name": "happy",
+    "desc": "it's always nice to share your good vibes",
+    "data": [
       "https://c.tenor.com/Fi5H8EfqtFAAAAAC/yay-yeah.gif",
       "https://c.tenor.com/11yz3HKByNYAAAAC/happy-anime.gif",
       "https://c.tenor.com/-dYzuY3XsU4AAAAC/happy-anime-happy.gif",
@@ -293,20 +293,20 @@
 
       "https://c.tenor.com/tLFc6lDha_EAAAAC/anime-girl.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+     "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "headpat": {
-    "NAME": "headpat",
-    "DESC": "zai deserves all the head pats in the world",
-    "DATA": [
+    "name": "headpat",
+    "desc": "zai deserves all the head pats in the world",
+    "data": [
       "https://c.tenor.com/YGQYQKrSsCIAAAAC/anime-pat.gif",
       "https://c.tenor.com/OUSrLXimAq8AAAAC/head-pat-anime.gif",
       "https://c.tenor.com/g_61F9hKhV4AAAAC/pat-head-pat.gif",
@@ -342,20 +342,20 @@
 
       "https://c.tenor.com/Jj-vHGZOgT4AAAAC/anime-anime-girl.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "hug": {
-    "NAME": "hug",
-    "DESC": "everyone wants one, don't be shy",
-    "DATA": [
+    "name": "hug",
+    "desc": "everyone wants one, don't be shy",
+    "data": [
       "https://c.tenor.com/pYzpQgkAQJkAAAAC/violet-evergarden-hug.gif",
       "https://c.tenor.com/FJaQ1MKAtowAAAAd/idk-what-anime-this-is-from-but-its-anime-girls-hugging.gif",
       "https://c.tenor.com/3ergzHiRIBwAAAAC/hug-cuddle.gif",
@@ -381,20 +381,20 @@
       "https://c.tenor.com/aG0pA87t0dMAAAAC/anime-chino.gif",
       "https://c.tenor.com/bWvPyYDBpdcAAAAC/anime-couple-anime-head-rub.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "laugh": {
-    "NAME": "laugh",
-    "DESC": "ahahahah",
-    "DATA": [
+    "name": "laugh",
+    "desc": "ahahahah",
+    "data": [
       "https://c.tenor.com/k-pqAMqGrcYAAAAC/joshiraku-anime.gif",
       "https://c.tenor.com/NlhCOfkZugAAAAAC/animegirl-laughing.gif",
       "https://c.tenor.com/4gpOJNzpb44AAAAC/zsanime-anime.gif",
@@ -421,56 +421,56 @@
       "https://c.tenor.com/7ksO4mwLsf4AAAAC/ngakak-laugh.gif",
       "https://c.tenor.com/skm4CsAaDLQAAAAC/sailor-moon-laugh.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "opsy": {
-    "NAME": "opsy",
-    "DESC": "we all sometimes do some silly things",
-    "DATA": [
+    "name": "opsy",
+    "desc": "we all sometimes do some silly things",
+    "data": [
       "https://c.tenor.com/sjUvV_MMDksAAAAC/anime-girl.gif",
       "https://c.tenor.com/q6vmV7JzZaAAAAAd/anime-oops-my-fault.gif",
       "https://c.tenor.com/HOQ5bxzACaUAAAAC/dandidave-cute.gif",
       "https://c.tenor.com/2cDkLXJpYPAAAAAC/anime-tohru-honda.gif",
       "https://c.tenor.com/3SMAyDkjv6MAAAAC/akane-shinjō-shinjou-akane.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "pause": {
-    "NAME": "pause",
-    "DESC": "░P░a░u░s░i░n░g░,░ ░r░e░a░l░i░t░y░ ░n░e░e░d░s░ ░y░o░u░",
-    "DATA": [
+    "name": "pause",
+    "desc": "░P░a░u░s░i░n░g░,░ ░r░e░a░l░i░t░y░ ░n░e░e░d░s░ ░y░o░u░",
+    "data": [
       "https://c.tenor.com/QxWHvmM7JfYAAAAd/getting-up-anime.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "please": {
-    "NAME": "please",
-    "DESC": "you can't resist those pretty eyes, can you?",
-    "DATA": [
+    "name": "please",
+    "desc": "you can't resist those pretty eyes, can you?",
+    "data": [
       "https://c.tenor.com/j-mVhVzhSAYAAAAC/anime-cry.gif",
       "https://c.tenor.com/AawIsMGnR88AAAAC/llorar1-cry.gif",
       "https://c.tenor.com/-bXrej4rT3cAAAAC/anime-girl.gif",
@@ -479,20 +479,20 @@
 
       "https://c.tenor.com/KJssr8kEMGcAAAAC/anime-girl.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "rainy_mood": {
-    "NAME": "rainy_mood",
-    "DESC": "allow the dream machine to lull your sorrow",
-    "DATA": [
+    "name": "rainy_mood",
+    "desc": "allow the dream machine to lull your sorrow",
+    "data": [
       "https://www.youtube.com/watch?v=WnFs85pLmj4",
       "https://www.youtube.com/watch?v=Nu48Z45ibxQ",
       "https://www.youtube.com/watch?v=sx31YcLXAug",
@@ -517,36 +517,36 @@
 
       "https://www.youtube.com/watch?v=c6f4lJVwMs8"
     ],
-    "SUCC": {
-      "PHR": "░B░e░ ░a░t░ ░e░a░s░e░, ░I░ ░w░i░l░l░ ░t░a░k░e░ ░c░a░r░e░ ░o░f░ ░y░o░u░",
-      "GIF": "https://c.tenor.com/UOu5DnxHRUYAAAAC/sad-anime.gif"
+    "success": {
+      "desc": "░B░e░ ░a░t░ ░e░a░s░e░, ░I░ ░w░i░l░l░ ░t░a░k░e░ ░c░a░r░e░ ░o░f░ ░y░o░u░",
+      "data": "https://c.tenor.com/UOu5DnxHRUYAAAAC/sad-anime.gif"
     },
-    "ERRO": {
-      "PHR": "It never rains but it pours",
-      "GIF": "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
+    "error": {
+      "desc": "It never rains but it pours",
+      "data": "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
     }
   },
 
   "resume": {
-    "NAME": "resume",
-    "DESC": "░R░e░s░u░m░i░n░g░,░ ░w░h░e░r░e░ ░w░e░r░e░ ░w░e░?░",
-    "DATA": [
+    "name": "resume",
+    "desc": "░R░e░s░u░m░i░n░g░,░ ░w░h░e░r░e░ ░w░e░r░e░ ░w░e░?░",
+    "data": [
       "https://c.tenor.com/s3lwSOIVsU4AAAAC/shiroi-suna-no-aquatope-the-aquatope-on-white-sand.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "sad": {
-    "NAME": "sad",
-    "DESC": "sometimes life's hard, allow me to embrace and convey your feelings",
-    "DATA": [
+    "name": "sad",
+    "desc": "sometimes life's hard, allow me to embrace and convey your feelings",
+    "data": [
       "https://64.media.tumblr.com/c75a7492ed6153828ccfea76ab659cae/tumblr_pwnqrr3v2M1yqkoyvo1_500.gif",
       "https://c.tenor.com/ESe9mqJlywkAAAAC/anime-girl.gif",
       "https://c.tenor.com/EizBjV8lOFUAAAAd/sad-girl.gif",
@@ -588,20 +588,20 @@
       "https://c.tenor.com/VDwrKFrSyHsAAAAC/anime-running.gif",
       "https://c.tenor.com/9NQ6gwp930oAAAAC/violet-evergarden-anime.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "shifting_dreams": {
-    "NAME": "shifting_dreams",
-    "DESC": "relax your mind, traveller. Let the dream machine run",
-    "DATA": [
+    "name": "shifting_dreams",
+    "desc": "relax your mind, traveller. Let the dream machine run",
+    "data": [
       "https://www.youtube.com/watch?v=BgQXB-K-JE8",
       "https://www.youtube.com/watch?v=DVp544ddupo",
       "https://www.youtube.com/watch?v=lAPGtQN46lE",
@@ -617,20 +617,20 @@
       "https://www.youtube.com/watch?v=jEOnbNzYbIM",
       "https://www.youtube.com/watch?v=0Ft7Q_TrjFY"
     ],
-    "SUCC": {
-      "PHR": "░R░e░l░a░x░ ░y░o░u░r░ ░m░i░n░d░,░ ░t░r░a░v░e░l░l░e░r░:░ ░t░h░e░ ░d░r░e░a░m░ ░m░a░c░h░i░n░e░ ░i░s░ ░b░o░o░t░i░n░g░",
-      "GIF": ""
+    "success": {
+      "desc": "░R░e░l░a░x░ ░y░o░u░r░ ░m░i░n░d░,░ ░t░r░a░v░e░l░l░e░r░:░ ░t░h░e░ ░d░r░e░a░m░ ░m░a░c░h░i░n░e░ ░i░s░ ░b░o░o░t░i░n░g░",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "You have to relax to ride the train of thoughts",
-      "GIF": "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
+    "error": {
+      "desc": "You have to relax to ride the train of thoughts",
+      "data": "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
     }
   },
 
   "smile": {
-    "NAME": "smile",
-    "DESC": "kind people are always my kind of people",
-    "DATA": [
+    "name": "smile",
+    "desc": "kind people are always my kind of people",
+    "data": [
       "https://c.tenor.com/U1p83COiAPYAAAAC/anime-happy-anime-smile.gif",
       "https://c.tenor.com/6x5NsgRFxFUAAAAC/animegirl-anime.gif",
       "https://c.tenor.com/nuKmYDgaDpAAAAAC/anime-smile.gif",
@@ -661,20 +661,20 @@
       "https://c.tenor.com/ZglUG-3bnOAAAAAC/anime-shikimoris-not-just-cute.gif",
       "https://c.tenor.com/G3k9xdBSjM4AAAAC/reina-kousaka-hibike-euphonium.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "smirk": {
-    "NAME": "smirk",
-    "DESC": "( ͡ ° ͜ʖ ͡ °) (¬‿¬)",
-    "DATA": [
+    "name": "smirk",
+    "desc": "( ͡ ° ͜ʖ ͡ °) (¬‿¬)",
+    "data": [
       "https://c.tenor.com/beBYN2X06NwAAAAC/flirty-anime.gif",
       "https://c.tenor.com/gq3hI9ts-fkAAAAC/anime-zero-two.gif",
       "https://c.tenor.com/Er0KtYDvy_cAAAAC/accion-reface.gif",
@@ -685,20 +685,20 @@
       "https://c.tenor.com/ZglUG-3bnOAAAAAd/anime-shikimoris-not-just-cute.gif",
       "https://media.tenor.com/3D__CbAhTl8AAAAC/girl-cute.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "sob": {
-    "NAME": "sob",
-    "DESC": "sigh",
-    "DATA": [
+    "name": "sob",
+    "desc": "sigh",
+    "data": [
       "https://c.tenor.com/0EgQgZWi8WoAAAAC/sigh-yamadakun-and-the-seven-witches.gif",
       "https://c.tenor.com/z-tjiE68w40AAAAC/kiniromozaic-kinmozaic.gif",
       "https://c.tenor.com/LuFqQfvs36QAAAAC/sigh-anime.gif",
@@ -706,20 +706,20 @@
       "https://c.tenor.com/PCcfYlHhNTEAAAAC/mashiro-shiina-sigh.gif",
       "https://c.tenor.com/-ugVcXNgn-IAAAAC/sakurasou-mashiro.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "sorry": {
-    "NAME": "sorry",
-    "DESC": "don't be proud and say you're sorry, maybe everything will be over with an head pat",
-    "DATA": [
+    "name": "sorry",
+    "desc": "don't be proud and say you're sorry, maybe everything will be over with an head pat",
+    "data": [
       "https://c.tenor.com/RNOB1JF8Br4AAAAC/sorry-crying.gif",
       "https://c.tenor.com/liqgmFIpRPkAAAAC/sad.gif",
       "https://c.tenor.com/V6XYNyS-Q4cAAAAC/reina-izumi.gif",
@@ -734,20 +734,20 @@
       "https://c.tenor.com/APIsjPJxtAUAAAAC/anime-sorry.gif",
       "https://c.tenor.com/lSwVx09EvFkAAAAC/jasorry-jaanime.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   },
 
   "swish": {
-    "NAME": "swish",
-    "DESC": "diss everyone with your long hairs",
-    "DATA": [
+    "name": "swish",
+    "desc": "diss everyone with your long hairs",
+    "data": [
       "https://c.tenor.com/MN1hqkhC9KEAAAAC/anime-hair-flip.gif",
       "https://c.tenor.com/SplAvaLIUpIAAAAC/black-hair.gif",
       "https://c.tenor.com/Y2xxPef5KJsAAAAC/zero-two-darling-in-the-franxx.gif",
@@ -767,13 +767,13 @@
       "https://www.kotaku.com.au/wp-content/uploads/sites/3/2017/02/11/irm3dwdg8zlpwzod55hb.gif?quality=80&w=660",
       "https://c.tenor.com/_hFFcCCh2SEAAAAC/girly-air-force-gripen.gif"
     ],
-    "SUCC": {
-      "PHR": "",
-      "GIF": ""
+    "success": {
+      "desc": "",
+      "data": ""
     },
-    "ERRO": {
-      "PHR": "",
-      "GIF": ""
+    "error": {
+      "desc": "",
+      "data": ""
     }
   }
 }
