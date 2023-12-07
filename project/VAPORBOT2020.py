@@ -1,7 +1,7 @@
 # --- VAPORBOT2020.py ------------------------------------------------------------------------------------------------ #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 22/11/2023                                                                                           #
-# Last edit     : 06/12/2023                                                                                           #
+# Last edit     : 07/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : VAPORBOT2020, a Discord bot powered by aesthetic and nostalgia.                                      #
 #                 This file contains the main class for the bot, with all events, commands and loop tasks handling.    #
@@ -26,6 +26,9 @@
 #                           - pause video           -> missing                                                         #
 #                       * deployed message                                                                             #
 #                           - send on trigger       -> missing                                                         #
+#                       * add activity and status                                                                      #
+#                           - set activity          -> missing                                                         #
+#                           - set status            -> missing                                                         #
 # -------------------------------------------------------------------------------------------------------------------- #
 
 
@@ -147,9 +150,12 @@ class VAPORBOT2020:
                 return
             if self.bot.user.mentioned_in(message) and message.mention_everyone is False:
                 ctx = await self.bot.get_context(message)
-                user = ctx.author
-                response = self.responseHandler.mention(user)
+                response = self.responseHandler.mention(ctx.author)
                 await funcMessaging.send_message(message, response, True, False)
+                print("\n* event | bot @mention")
+                print("*   server  :", ctx.guild.name)
+                print("*   channel :", ctx.channel.name)
+                print("*   author  :", ctx.author.name)
                 return
             if content[0] == '?':
                 content = content[1:]
@@ -223,8 +229,10 @@ class VAPORBOT2020:
         embed = self.responseHandler.embed_command_response(interaction, self.cmd[slash.LIZST[cmd_index]]['data'])
         await interaction.response.send_message(embed=embed, ephemeral=False)
         print("\n* event | slash command")
-        print("*   cmd  :", self.cmd[slash.LIZST[cmd_index]]['name'])
-        print("*   auth :", embed.author.name)
+        print("*   server  :", interaction.guild.name)
+        print("*   channel :", interaction.channel.name)
+        print("*   command :", self.cmd[slash.LIZST[cmd_index]]['name'])
+        print("*   author  :", interaction.user.name)
 
     # Slash commands' generation and setup --------------------------------------------------------------------------- #
     def slash_commands_setup(self):
