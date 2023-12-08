@@ -12,8 +12,6 @@
 import discord
 # Python libraries --------------------------------------------------------------------------------------------------- #
 import json
-import math
-from random import random
 
 
 # --- Class | HandleResponse ----------------------------------------------------------------------------------------- #
@@ -58,11 +56,10 @@ class HandleResponse:
 
     # ---------------------------------------------------------------------------------------------------------------- #
     def embed_command_response(self, interaction, data) -> discord.Embed:
-        index = math.floor(random() * len(data))
         return self.embeds(title='',
                            description='',
                            user=interaction.user,
-                           image=data[index],
+                           image=data,
                            thumbnail='')
 
     # ---------------------------------------------------------------------------------------------------------------- #

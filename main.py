@@ -51,7 +51,7 @@ if __name__ == '__main__':
     file_env.close()
 
     # run the bot
-    VAPORBOT2020 = VAPORBOT2020.VAPORBOT2020(config_file, commands_file)
+    VAPORBOT2020 = VAPORBOT2020.VAPORBOT2020(config_file, commands_file, deploy)
     VAPORBOT2020.run(env[deploy]['token'])
 
 # -------------------------------------------------------------------------------------------------------------------- #
