@@ -35,7 +35,7 @@ class OptionChoices:
 class CommandOptions:
     # Variables ------------------------------------------------------------------------------------------------------ #
     name: str
-    type: any
+    mode: any
     desc: str
     required: bool
     choices = []
@@ -44,7 +44,7 @@ class CommandOptions:
     def __init__(self, j_opt: json):
         self.name = j_opt['name']
         self.title = j_opt['desc']
-        self.type = j_opt['type']
+        self.mode = j_opt['type']
         self.required = True if j_opt['required'] == 'true' else False
         if 'choices' in j_opt:
             for choice in j_opt['choices']:
@@ -59,7 +59,7 @@ class SlashCommands:
     rand: int
     name: str
     desc: str
-    type: str
+    mode: str
     json: json
     options = []
     handler: handleResponse.HandleResponse
@@ -74,7 +74,7 @@ class SlashCommands:
         # init command description
         self.desc = j_cmd['desc']
         # init command type
-        self.type = j_cmd['type']
+        self.mode = j_cmd['type']
         # init content
         self.json = j_cmd
         # init options array
@@ -89,7 +89,7 @@ class SlashCommands:
         # slash commands execute response ---------------------------------------------------------------------------- #
         @self.bot.tree.command(name=self.name, description=self.desc)
         async def execute(interaction: discord.Interaction):
-            match self.type:
+            match self.mode:
                 case 'embed':
                     await self.embed(interaction)
                 case 'music':
