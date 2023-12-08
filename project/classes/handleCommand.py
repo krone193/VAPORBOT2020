@@ -89,11 +89,12 @@ class SlashCommands:
         # slash commands execute response ---------------------------------------------------------------------------- #
         @self.bot.tree.command(name=self.name, description=self.desc)
         async def execute(interaction: discord.Interaction):
-            match self.mode:
-                case 'embed':
-                    await self.embed(interaction)
-                case 'music':
-                    await self.music(interaction)
+            if self.mode == 'embed':
+                await self.embed(interaction)
+            elif self.mode == 'music':
+                await self.music(interaction)
+            else:
+                await self.embed(interaction)
 
     # slash embed commands response ---------------------------------------------------------------------------------- #
     async def embed(self, interaction: discord.Interaction):
