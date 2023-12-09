@@ -1,7 +1,7 @@
 # --- handleResponse.py ---------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 29/11/2023                                                                                           #
-# Last edit     : 06/12/2023                                                                                           #
+# Last edit     : 09/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : class to populate embedded and text response on VAPORBOT2020's events                                #
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -10,6 +10,7 @@
 # --- Imports -------------------------------------------------------------------------------------------------------- #
 # Discord API wrapper ------------------------------------------------------------------------------------------------ #
 import discord
+import discord.ext.commands
 # Python libraries --------------------------------------------------------------------------------------------------- #
 import json
 
@@ -29,8 +30,7 @@ class HandleResponse:
         embed = discord.Embed(colour=int(self.config['global']['embed_colour'], 16),
                               title=title,
                               type='rich',
-                              description=description
-                              )
+                              description=description)
         if user != '':
             embed.set_author(name=user.name, icon_url=user.avatar)
         if image != '':
@@ -40,19 +40,21 @@ class HandleResponse:
         return embed
 
     # ---------------------------------------------------------------------------------------------------------------- #
-    def handle_response(self, message) -> str:
-        p_message = message.lower()
-        if p_message == 'hello':
-            return "Hello, I'm " + self.config['global']['name'] + " ; )"
-        return ''
-
-    # ---------------------------------------------------------------------------------------------------------------- #
-    def mention(self, user) -> discord.Embed:
-        return self.embeds(title=self.config['global']['mention_title'],
-                           description=self.config['global']['mention_description'],
-                           user=user,
-                           image=self.config['global']['mention_gif'],
-                           thumbnail=self.config['global']['embed_thumbnail'])
+    def handle_response(self,
+                        bot: discord.ext.commands.Bot,
+                        ctx: discord.ext.commands.context,
+                        is_mention: bool) -> any:
+        if is_mention:
+            return self.embeds(title=self.config['global']['mention_title'],
+                               description=self.config['global']['mention_description'],
+                               user=ctx.author,
+                               image=self.config['global']['mention_gif'],
+                               thumbnail=self.config['global']['embed_thumbnail'])
+        else:
+            p_message = ctx.message.content.lower()
+            if p_message == 'hello':
+                return "Hello, I'm " + str(bot.user.name) + " ; )"
+            return None
 
     # ---------------------------------------------------------------------------------------------------------------- #
     def embed_command_response(self, interaction, data) -> discord.Embed:

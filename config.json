@@ -1,7 +1,7 @@
 {
   "global": {
     "name": "VAPORBOT 2020",
-    "version": "0.2.2.0",
+    "version": "0.2.2.1",
     "phase": "beta",
     "embed_colour": "FFC0CB",
     "embed_thumbnail": "https://i.pinimg.com/564x/b3/f4/96/b3f4968ba4a40673492147d12f635acd.jpg",
@@ -9,8 +9,8 @@
     "mention_description": "Hello there!\nI'm a bot powered by raw A̸͎̦͒́̿ ̷͖̺̿̃Ḙ̶̅͌ ̸̻̬͍̐̕S̴͓̼̪͊ ̴̺̦̈́T̶͇̈̈́͝ ̵̦̊̿H̷̳̟̥̆̂̓ ̵̞̓̒E̸̶͔̻̭̲̻̋̔͆T̴̨̳̝͗ ̶̟̮̮̽Ị̷̜̯͋͗͠ ̷̢̛͎̭̿C̷̝͊̃ ̵̩̤̤̊̈́S̸̨͇̍.\nand pure ᑎOᔕTᗩᒪGIᗩ",
     "mention_gif": "https://aniyuki.com/wp-content/uploads/2021/05/gif-aniyuki-zero-two-50.gif",
     "stream_max_retry": "3",
-    "activity_name": "D̷̝̥̘̣̮̀͆̚͝Ŗ̵̊̀͌͗E̴̘̚̕A̴̦̺̪̎̇͗ͅM̵̡̛͎̗͖̉̈́̀̿ͅŚ̸̡̘̠͓̉",
     "activity_type": "LISTENING",
+    "activity_name": "D̷̝̥̘̣̮̀͆̚͝Ŗ̵̊̀͌͗E̴̘̚̕A̴̦̺̪̎̇͗ͅM̵̡̛͎̗͖̉̈́̀̿ͅŚ̸̡̘̠͓̉",
     "status": "ONLINE"
   },
 

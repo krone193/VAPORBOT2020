@@ -1,7 +1,7 @@
 # --- VAPORBOT2020.py ------------------------------------------------------------------------------------------------ #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 22/11/2023                                                                                           #
-# Last edit     : 07/12/2023                                                                                           #
+# Last edit     : 09/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : VAPORBOT2020, a Discord bot powered by aesthetic and nostalgia.                                      #
 #                 This file contains the main class for the bot, with all events, commands and loop tasks handling.    #
@@ -11,7 +11,7 @@
 #                           - on private channel    -> implemented                                                     #
 #                       * reply on mention                                                                             #
 #                           - on direct @mention    -> implemented                                                     #
-#                           - block on reply        -> missing                                                         #
+#                           - block on reply        -> implemented                                                     #
 #                       * loop for on-time events                                                                      #
 #                           - 1 minute loop         -> implemented                                                     #
 #                           - send events           -> implemented                                                     #
@@ -44,6 +44,7 @@ from datetime import datetime
 # Project constants -------------------------------------------------------------------------------------------------- #
 import project.constants.events as events
 import project.constants.servers as servers
+import project.constants.dictionaries as dictionaries
 # Project functions -------------------------------------------------------------------------------------------------- #
 import project.functions.sendMessage as funcMessaging
 # Project classes ---------------------------------------------------------------------------------------------------- #
@@ -60,7 +61,8 @@ class VAPORBOT2020:
     cmd: json
     deploy: str
     status: discord.Status
-    activity: discord.Activity
+    act_type: discord.BaseActivity
+    act_name: discord.Activity
     dt: datetime
     responseHandler: handleResponse
     slash_commands = list()
@@ -92,10 +94,11 @@ class VAPORBOT2020:
         intents.message_content = True
         intents.members = True
         intents.messages = True
-        print("#   intents: default    #")
-        print("#    + members  = true  #")
-        print("#    + messages = true  #")
-        print("#    + content  = true  #")
+        print("#   intents:            #")
+        print("#    └ default  +       #")
+        print("#    └ members  = true  #")
+        print("#    └ messages = true  #")
+        print("#    └ content  = true  #")
 
         # create Discord Client
         self.bot = commands.Bot(command_prefix=str(commands.when_mentioned_or("/")),
@@ -144,13 +147,15 @@ class VAPORBOT2020:
 
         @self.bot.event
         async def on_ready():
+            self.update_datetime()
             print("\n* event | on_ready (start)")
+            print(f'*   {self.dt.strftime("%d/%m/%Y %H:%M:%S")}')
             print(f'*   {self.bot.user}')
             print(f'*   {self.bot.user.id}')
-            self.status = discord.Status.online
-            self.activity = discord.Activity(type=discord.ActivityType.listening,
-                                             name=self.config['global']['activity_name'])
             try:
+                self.status = discord.Status.online
+                self.activity = discord.Activity(type=dictionaries.activities[self.config['global']['activity_type']],
+                                                 name=self.config['global']['activity_name'])
                 await self.bot.change_presence(status=self.status, activity=self.activity)
                 print(f"*   status")
                 print(f"*     └ {self.status}")
@@ -158,38 +163,53 @@ class VAPORBOT2020:
                 print(f"*     └ {self.activity.type}")
                 print(f"*     └ {self.activity.name}")
                 sync = await self.bot.tree.sync()
-                print("\n* event | on_ready (close)")
+                self.update_datetime()
+                print('\n* event | on_ready (close)')
+                print(f'*   {self.dt.strftime("%d/%m/%Y %H:%M:%S")}')
                 print(f"*   synced {len(sync)} command(s)")
             except Exception as err:
                 print(err)
 
         @self.bot.event
-        async def on_message(message):
+        async def on_message(message: discord.Message):
+            self.update_datetime()
             username = str(message.author)
             content = str(message.content)
-            # channel = str(message.channel)
+            # do not process own messages
             if username == self.bot.user:
                 return
+            # do not process messages with no content
             if content == '':
                 return
-            if self.bot.user.mentioned_in(message) and message.mention_everyone is False:
-                ctx = await self.bot.get_context(message)
-                response = self.responseHandler.mention(ctx.author)
-                await funcMessaging.send_message(message, response, True, False)
-                print("\n* event | bot @mention")
-                print("*   server  :", ctx.guild.name)
-                print("*   channel :", ctx.channel.name)
-                print("*   author  :", ctx.author.name)
-                return
+            # determine if response on private channel
             if content[0] == '?':
                 content = content[1:]
                 private = True
                 await message.delete()
             else:
                 private = False
-            response = self.responseHandler.handle_response(content)
-            if response != '':
-                await funcMessaging.send_message(message, response, False, private)
+            # get message complete context
+            ctx = await self.bot.get_context(message)
+            # check if possible to reply to mentions
+            is_mention = False
+            if self.bot.user.mentioned_in(message) and message.mention_everyone is False:
+                if message.reference is None:
+                    is_mention = True
+                else:
+                    reply_msg = await ctx.channel.fetch_message(message.reference.message_id)
+                    if reply_msg.author != self.bot.user:
+                        is_mention = True
+            # get response
+            response = self.responseHandler.handle_response(self.bot, ctx, is_mention)
+            # send response
+            if response is not None:
+                await funcMessaging.send_message(message, response, is_mention, private)
+                print('\n* event | on message')
+                print(f'*   {self.dt.strftime("%d/%m/%Y %H:%M:%S")}')
+                print(f'*   server  : {ctx.guild.name}')
+                print(f'*   channel : {ctx.channel.name}')
+                print(f'*   author  : {ctx.author.name}')
+                print('*   type    :', "@mention" if is_mention else "text")
 
     # Run VAPORBOT2020 ----------------------------------------------------------------------------------------------- #
     def run(self, token: str):
@@ -204,8 +224,8 @@ class VAPORBOT2020:
     async def timed_events_task(self):
         # loop functions --------------------------------------------------------------------------------------------- #
         self.update_datetime()
-        print("\n* event | timed_events")
-        print(self.dt.strftime("*   %d/%m/%Y %H:%M:%S"))
+        print('\n* event | timed_events')
+        print(f'*   {self.dt.strftime("%d/%m/%Y %H:%M:%S")}')
         event = events.NULL
         server = servers.NULL
         # working day handling --------------------------------------------------------------------------------------- #
