@@ -28,8 +28,8 @@
 #                       * deployed message                                                                             #
 #                           - send on trigger       -> missing                                                         #
 #                       * add activity and status                                                                      #
-#                           - set activity          -> missing                                                         #
-#                           - set status            -> missing                                                         #
+#                           - set activity          -> implemented                                                     #
+#                           - set status            -> implemented                                                     #
 # -------------------------------------------------------------------------------------------------------------------- #
 
 
@@ -59,6 +59,8 @@ class VAPORBOT2020:
     config: json
     cmd: json
     deploy: str
+    status: discord.Status
+    activity: discord.Activity
     dt: datetime
     responseHandler: handleResponse
     slash_commands = list()
@@ -107,7 +109,8 @@ class VAPORBOT2020:
                 print("#   skip test command   #")
                 print("# --------------------- #")
             else:
-                self.slash_commands.append(handleCommand.SlashCommands(self.bot, self.cmd[command], self.responseHandler))
+                self.slash_commands.append(handleCommand.SlashCommands(self.bot, self.cmd[command],
+                                                                       self.responseHandler))
         print("#   slash commands ok   #")
         print("# --------------------- #")
 
@@ -144,7 +147,16 @@ class VAPORBOT2020:
             print("\n* event | on_ready (start)")
             print(f'*   {self.bot.user}')
             print(f'*   {self.bot.user.id}')
+            self.status = discord.Status.online
+            self.activity = discord.Activity(type=discord.ActivityType.listening,
+                                             name=self.config['global']['activity_name'])
             try:
+                await self.bot.change_presence(status=self.status, activity=self.activity)
+                print(f"*   status")
+                print(f"*     └ {self.status}")
+                print(f"*   activity")
+                print(f"*     └ {self.activity.type}")
+                print(f"*     └ {self.activity.name}")
                 sync = await self.bot.tree.sync()
                 print("\n* event | on_ready (close)")
                 print(f"*   synced {len(sync)} command(s)")
