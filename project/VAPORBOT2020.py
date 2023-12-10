@@ -118,7 +118,6 @@ class VAPORBOT2020:
         for command in self.cmd:
             if command == 'test' and self.deploy == dictionaries.DEPLOYS['release']:
                 print('#   skip test command   #')
-                print('# --------------------- #')
             else:
                 self.slash_commands.append(handleCommand.SlashCommands(self.bot, self.cmd[command],
                                                                        self.responseHandler))
