@@ -1,0 +1,97 @@
+{
+  "event_COFFEE": {
+    "server": "cipolle",
+    "channel": "coffee_channel",
+    "title": "(￣ρ￣)..zzZZ C O F F E E T I M E ლ(ಠ_ಠ ლ)",
+    "desc": "Let's go drink some coffee, pls (♡˙︶˙♡)",
+    "data": "https://c.tenor.com/iDy78BQ8324AAAAC/anime-smell.gif",
+    "content": "@everyone",
+    "iso_weekdays": [ 1, 2, 3, 4, 5 ],
+    "hours": [ 9, 15 ],
+    "minutes": [ 0, 0 ]
+  },
+
+  "event_ANGS": {
+    "server": "cipolle",
+    "channel": "coffee_channel",
+    "title": "(っ´ω`)ﾉ(╥ω╥) A N G S  I ' M  H E R E ヽ(￣ω￣(。。 )ゝ",
+    "desc": "Your determination is remarkable. \n I'll always be here for you ♡( ◡‿◡ )",
+    "data": "https://c.tenor.com/qGn2vL8tTMUAAAAC/yuri-reina-kousaka.gif",
+    "content": "@everyone",
+    "iso_weekdays": [ 6, 7 ],
+    "hours": [ 9, 15 ],
+    "minutes": [ 0, 0 ]
+  },
+
+  "event_MORNING": {
+    "server": "cipolle",
+    "channel": "general_channel",
+    "title": "°˖✧◝(⁰▿⁰)◜✧˖°  H E L L O  °˖✧◝(⁰▿⁰)◜✧˖°",
+    "desc": "Let this positive energy fill your day with determination <3",
+    "data": "https://c.tenor.com/phH0IQwbox8AAAAC/i-got-this-anime.gif",
+    "content": "@everyone",
+    "iso_weekdays": [ 1, 2, 3, 4, 5 ],
+    "hours": [ 8 ],
+    "minutes": [ 30 ]
+  },
+
+  "event_LUNCH": {
+    "server": "cipolle",
+    "channel": "general_channel",
+    "title": "(ﾉ´ヮ`)ﾉ  Y U M M Y  ＼(￣▽￣)／",
+    "desc": "Another morning is gone, stay determined!",
+    "data": "https://c.tenor.com/GRUsbHL9C_IAAAAC/zerotwo.gif",
+    "content": "@everyone",
+    "iso_weekdays": [ 1, 2, 3, 4, 5 ],
+    "hours": [ 12 ],
+    "minutes": [ 30 ]
+  },
+
+  "event_BYE_ELFA": {
+    "server": "cipolle",
+    "channel": "general_channel",
+    "title": "o(≧▽≦)o ☆  E L F A  ☆～('▽^人)",
+    "desc": "Another day has passed, see ya and love to all of you :3",
+    "data": "https://c.tenor.com/Rf5v6glMta8AAAAC/hey-waves.gif",
+    "content": "<@&1166642794375413801>",
+    "iso_weekdays": [ 1, 2, 3, 4, 5 ],
+    "hours": [ 17 ],
+    "minutes": [ 0 ]
+  },
+
+  "event_BYE_CISA": {
+    "server": "cipolle",
+    "channel": "general_channel",
+    "title": "o(≧▽≦)o ☆  C I S A  ☆～('▽^人)",
+    "desc": "Another day has passed, see ya and love to all of you :3",
+    "data": "https://media.tenor.com/FSK1EksixakAAAAC/thumbs-up-anime.gif",
+    "content": "<@&975732345099403365>",
+    "iso_weekdays": [ 1, 2, 3, 4, 5 ],
+    "hours": [ 17 ],
+    "minutes": [ 35 ]
+  },
+
+  "event_VAPORDEV_01": {
+    "server": "cipolle",
+    "channel": "debug_channel",
+    "title": "T E S T   0 1",
+    "desc": "First test of the day",
+    "data": "https://media1.tenor.com/m/aEBQX-PoSmcAAAAC/anime-lab.gif",
+    "content": "",
+    "iso_weekdays": [ 1, 2, 3, 4, 5, 6, 7 ],
+    "hours": [ 13 ],
+    "minutes": [ 1, 2 ]
+  },
+
+  "event_VAPORDEV_02": {
+    "server": "cipolle",
+    "channel": "debug_channel",
+    "title": "T E S T   0 2",
+    "desc": "Second test of the day",
+    "data": "https://media1.tenor.com/m/aEBQX-PoSmcAAAAC/anime-lab.gif",
+    "content": "",
+    "iso_weekdays": [ 1, 2, 3, 4, 5, 6, 7 ],
+    "hours": [ 13 ],
+    "minutes": [ 1 ]
+  }
+}

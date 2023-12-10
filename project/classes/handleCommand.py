@@ -1,7 +1,7 @@
 # --- handleCommand.py ----------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 08/12/2023                                                                                           #
-# Last edit     : 08/12/2023                                                                                           #
+# Last edit     : 10/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : class to manage all type of bot slash commands                                                       #
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -19,6 +19,8 @@ import json
 import project.classes.handleResponse as handleResponse
 
 
+# --- Class | OptionChoices ------------------------------------------------------------------------------------------ #
+# -------------------------------------------------------------------------------------------------------------------- #
 class OptionChoices:
     # Variables ------------------------------------------------------------------------------------------------------ #
     name: str
@@ -30,7 +32,7 @@ class OptionChoices:
         self.value = value
 
 
-# --- Class | CommandArgument ---------------------------------------------------------------------------------------- #
+# --- Class | CommandOptions ----------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 class CommandOptions:
     # Variables ------------------------------------------------------------------------------------------------------ #
@@ -52,7 +54,7 @@ class CommandOptions:
                                                   j_opt['choices'][choice]['value']))
 
 
-# --- Class | HandleResponse ----------------------------------------------------------------------------------------- #
+# --- Class | SlashCommands ------------------------------------------------------------------------------------------ #
 # -------------------------------------------------------------------------------------------------------------------- #
 class SlashCommands:
     # Variables ------------------------------------------------------------------------------------------------------ #
@@ -62,32 +64,25 @@ class SlashCommands:
     mode: str
     json: json
     options = []
-    handler: handleResponse.HandleResponse
-    bot: commands.Bot
+    response_handle: handleResponse.HandleResponse
 
     # Init: pass a py json object as config -------------------------------------------------------------------------- #
-    def __init__(self, bot: commands.Bot, j_cmd: json, response_handler: handleResponse.HandleResponse):
-        # init last generated random index
-        self.rand = 255
-        # init command name
-        self.name = j_cmd['name']
-        # init command description
-        self.desc = j_cmd['desc']
-        # init command type
-        self.mode = j_cmd['type']
-        # init content
-        self.json = j_cmd
-        # init options array
-        if 'options' in j_cmd:
+    def __init__(self,
+                 bot: commands.Bot,
+                 j_cmd: json,
+                 response_handler: handleResponse.HandleResponse):
+        self.rand = 255                 # init last generated random index
+        self.name = j_cmd['name']       # init command name
+        self.desc = j_cmd['desc']       # init command description
+        self.mode = j_cmd['type']       # init command type
+        self.json = j_cmd               # init content
+        if 'options' in j_cmd:          # if present init options array
             for option in j_cmd['options']:
                 self.options.append(CommandOptions(j_cmd['options'][option]))
-        # assign response handler
-        self.handler = response_handler
-        # assign bot handler
-        self.bot = bot
+        self.response_handle = response_handler     # assign response handler
 
         # slash commands execute response ---------------------------------------------------------------------------- #
-        @self.bot.tree.command(name=self.name, description=self.desc)
+        @bot.tree.command(name=self.name, description=self.desc)
         async def execute(interaction: discord.Interaction):
             if self.mode == 'embed':
                 await self.embed(interaction)
@@ -96,32 +91,45 @@ class SlashCommands:
             else:
                 await self.embed(interaction)
 
+    # random data indexer update ------------------------------------------------------------------------------------- #
+    def get_random_index_within_data(self, data: json) -> int:
+        # random index generation
+        if len(data) > 1:
+            new_rand = self.rand
+            while new_rand == self.rand:
+                new_rand = math.floor(random() * len(data))
+        else:
+            new_rand = 0
+        return new_rand
+
     # slash embed commands response ---------------------------------------------------------------------------------- #
     async def embed(self, interaction: discord.Interaction):
         # random index generation
-        if len(self.json['data']) > 1:
-            new_rand = self.rand
-            while new_rand == self.rand:
-                new_rand = math.floor(random() * len(self.json['data']))
-        else:
-            new_rand = 0
-        self.rand = new_rand
-
+        self.rand = self.get_random_index_within_data(self.json['data'])
         # create the embed to send
-        embed = self.handler.embed_command_response(interaction, self.json['data'][self.rand])
-
+        embed = self.response_handle.embed_command_response(interaction, self.json['data'][self.rand])
         # send response and print log
         await interaction.response.send_message(embed=embed, ephemeral=False)
-        print("\n* event | slash command")
-        print("*   server  :", interaction.guild.name)
-        print("*   channel :", interaction.channel.name)
-        print("*   command :", self.name)
-        print("*   author  :", interaction.user.name)
-        print("*   pool    :", len(self.json['data']))
+        print('\n* event | slash command')
+        print('*   server  :', interaction.guild.name)
+        print('*   channel :', interaction.channel.name)
+        print('*   command :', self.name)
+        print('*   author  :', interaction.user.name)
+        print('*   data    :', self.rand + 1, '/', len(self.json['data']))
 
     # slash music commands response ---------------------------------------------------------------------------------- #
     async def music(self, interaction: discord.Interaction):
-        await self.embed(interaction)
+        # random index generation
+        self.rand = self.get_random_index_within_data(self.json['data'])
+        await interaction.response.send_message(content="Sorry, I'm still dreaming about this, but here's your link:\n"
+                                                        + self.json['data'][self.rand],
+                                                ephemeral=False)
+        print('\n* event | slash command')
+        print('*   server  :', interaction.guild.name)
+        print('*   channel :', interaction.channel.name)
+        print('*   command :', self.name)
+        print('*   author  :', interaction.user.name)
+        print('*   data    :', self.rand + 1, '/', len(self.json['data']))
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # --- End of file ---------------------------------------------------------------------------------------------------- #

@@ -1,7 +1,7 @@
 {
   "global": {
     "name": "VAPORBOT 2020",
-    "version": "0.2.2.1",
+    "version": "0.2.2.2",
     "phase": "beta",
     "embed_colour": "FFC0CB",
     "embed_thumbnail": "https://i.pinimg.com/564x/b3/f4/96/b3f4968ba4a40673492147d12f635acd.jpg",
@@ -15,63 +15,17 @@
   },
 
   "cipolle": {
-    "GUID": "903628351858679898",
-    "music_text_channel": "903640140470190112",
-    "music_channel": "911276556918345841",
-    "debug_channel": "910793931476860939",
-    "general_channel": "903628352328462388",
-
-    "event_COFFEE": {
-      "channel": "1174720719691710565",
-      "title": "(￣ρ￣)..zzZZ C O F F E E T I M E ლ(ಠ_ಠ ლ)",
-      "desc": "Let's go drink some coffee, pls (♡˙︶˙♡)",
-      "data": "https://c.tenor.com/iDy78BQ8324AAAAC/anime-smell.gif",
-      "content": "@everyone"
-    },
-
-    "event_ANGS": {
-      "channel": "1174720719691710565",
-      "title": "(っ´ω`)ﾉ(╥ω╥) A N G S  I ' M  H E R E ヽ(￣ω￣(。。 )ゝ",
-      "desc": "Your determination is remarkable. \n I'll always be here for you ♡( ◡‿◡ )",
-      "data": "https://c.tenor.com/qGn2vL8tTMUAAAAC/yuri-reina-kousaka.gif",
-      "content": "@everyone"
-    },
-
-    "event_MORNING": {
-      "channel": "903628352328462388",
-      "title": "°˖✧◝(⁰▿⁰)◜✧˖°  H E L L O  °˖✧◝(⁰▿⁰)◜✧˖°",
-      "desc": "Let this positive energy fill your day with determination <3",
-      "data": "https://c.tenor.com/phH0IQwbox8AAAAC/i-got-this-anime.gif",
-      "content": "@everyone"
-    },
-
-    "event_LUNCH": {
-      "channel": "903628352328462388",
-      "title": "(ﾉ´ヮ`)ﾉ  Y U M M Y  ＼(￣▽￣)／",
-      "desc": "Another morning is gone, stay determined!",
-      "data": "https://c.tenor.com/GRUsbHL9C_IAAAAC/zerotwo.gif",
-      "content": "@everyone"
-    },
-
-    "event_BYE_ELFA": {
-      "channel": "903628352328462388",
-      "title": "o(≧▽≦)o ☆  E L F A  ☆～('▽^人)",
-      "desc": "Another day has passed, see ya and love to all of you :3",
-      "data": "https://c.tenor.com/Rf5v6glMta8AAAAC/hey-waves.gif",
-      "content": "<@&1166642794375413801>"
-    },
-
-    "event_BYE_CISA": {
-      "channel": "903628352328462388",
-      "title": "o(≧▽≦)o ☆  C I S A  ☆～('▽^人)",
-      "desc": "Another day has passed, see ya and love to all of you :3",
-      "data": "https://media.tenor.com/FSK1EksixakAAAAC/thumbs-up-anime.gif",
-      "content": "<@&975732345099403365>"
-    }
+    "GUID": 903628351858679898,
+    "music_text_channel": 903640140470190112,
+    "music_channel": 911276556918345841,
+    "debug_channel": 910793931476860939,
+    "general_channel": 903628352328462388,
+    "coffee_channel": 1174720719691710565
   },
 
   "sballo": {
-    "GUID": "928405931484672020",
-    "music_channel": "928405931975401537"
+    "GUID": 928405931484672020,
+    "music_text_channel": 928659478621089823,
+    "music_channel": 928405931975401537
   }
 }

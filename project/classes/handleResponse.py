@@ -1,7 +1,7 @@
 # --- handleResponse.py ---------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 29/11/2023                                                                                           #
-# Last edit     : 09/12/2023                                                                                           #
+# Last edit     : 10/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : class to populate embedded and text response on VAPORBOT2020's events                                #
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -20,10 +20,12 @@ import json
 class HandleResponse:
     # Variables ------------------------------------------------------------------------------------------------------ #
     config: json
+    events: json
 
     # Init: pass a py json object as config -------------------------------------------------------------------------- #
-    def __init__(self, config: json):
+    def __init__(self, config: json, events: json):
         self.config = config
+        self.events = events
 
     # ---------------------------------------------------------------------------------------------------------------- #
     def embeds(self, title: str, description: str, user: any, image: str, thumbnail: str) -> discord.Embed:
@@ -53,7 +55,7 @@ class HandleResponse:
         else:
             p_message = ctx.message.content.lower()
             if p_message == 'hello':
-                return "Hello, I'm " + str(bot.user.name) + " ; )"
+                return "Hello, I'm " + bot.user.name + " ; )"
             return None
 
     # ---------------------------------------------------------------------------------------------------------------- #
@@ -65,11 +67,11 @@ class HandleResponse:
                            thumbnail='')
 
     # ---------------------------------------------------------------------------------------------------------------- #
-    def embed_timed_event(self, server: str, event: str) -> discord.Embed:
-        return self.embeds(title=self.config[server][event]['title'],
-                           description=self.config[server][event]['desc'],
+    def embed_timed_event(self, event: json) -> discord.Embed:
+        return self.embeds(title=event['title'],
+                           description=event['desc'],
                            user='',
-                           image=self.config[server][event]['data'],
+                           image=event['data'],
                            thumbnail='')
 
 # -------------------------------------------------------------------------------------------------------------------- #

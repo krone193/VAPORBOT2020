@@ -1,7 +1,7 @@
 # --- main.py -------------------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 29/11/2023                                                                                           #
-# Last edit     : 07/12/2023                                                                                           #
+# Last edit     : 10/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : starting file to initiate and run VAPORBOT2020                                                       #
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -10,9 +10,10 @@
 # --- Imports -------------------------------------------------------------------------------------------------------- #
 # Python libraries---------------------------------------------------------------------------------------------------- #
 import sys
-import json
 # Project bot -------------------------------------------------------------------------------------------------------- #
 import project.VAPORBOT2020 as VAPORBOT2020
+# Project functions -------------------------------------------------------------------------------------------------- #
+import project.functions.manageJsons as funcJsonManage
 
 
 # --- Variables ------------------------------------------------------------------------------------------------------ #
@@ -20,6 +21,7 @@ import project.VAPORBOT2020 as VAPORBOT2020
 env_file = "env.json"
 config_file = "config.json"
 commands_file = "commands.json"
+events_file = "events.json"
 deploy = "dev"
 release_file_path = "/home/krone/Bots/VAPORBOT2020/"
 
@@ -44,14 +46,13 @@ if __name__ == '__main__':
         env_file = release_file_path + env_file
         config_file = release_file_path + config_file
         commands_file = release_file_path + commands_file
+        events_file = release_file_path + events_file
 
     # parse environment file
-    file_env = open(env_file, encoding="utf8")
-    env = json.load(file_env)
-    file_env.close()
+    env = funcJsonManage.load_file(env_file, '')
 
     # run the bot
-    VAPORBOT2020 = VAPORBOT2020.VAPORBOT2020(config_file, commands_file, deploy)
+    VAPORBOT2020 = VAPORBOT2020.VAPORBOT2020(config_file, commands_file, events_file, deploy)
     VAPORBOT2020.run(env[deploy]['token'])
 
 # -------------------------------------------------------------------------------------------------------------------- #
