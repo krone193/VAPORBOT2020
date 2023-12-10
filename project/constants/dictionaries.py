@@ -3,7 +3,7 @@
 # Date          : 09/12/2023                                                                                           #
 # Last edit     : 10/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
-# Description   : CONST list of all dictionaries utils to VAPORBOT2020                                                 #
+# Description   : CONST list of all dictionaries and const for VAPORBOT2020                                            #
 # -------------------------------------------------------------------------------------------------------------------- #
 
 
@@ -12,6 +12,16 @@
 import discord
 
 
+# -------------------------------------------------------------------------------------------------------------------- #
+DEPLOYS = {
+    'debug': 'dev',
+    'release': 'release'
+}
+# -------------------------------------------------------------------------------------------------------------------- #
+PHYS = {
+    'development': 'pyCharm',
+    'production': 'raspi'
+}
 # -------------------------------------------------------------------------------------------------------------------- #
 ACTIVITIES = {
     'LISTENING': discord.ActivityType.listening,
