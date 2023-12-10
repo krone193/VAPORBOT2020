@@ -73,21 +73,21 @@ class VAPORBOT2020:
     def __init__(self, config_json: str, commands_json: str, events_json: str, deploy: str):
         print('# --- INIT SEQUENCE --- #')
 
-        # set execution environment
-        self.deploy = deploy
-        if self.deploy == 'release':
-            print('#   deploy: release     #')
-        elif self.deploy == 'dev':
-            print('#   deploy: dev         #')
-        else:
-            print('#   wrong deploy arg    #')
-            print('# --- EXIT SEQUENCE --- #')
-            return
-
         # load configuration and content JSON files
         self.config = funcJsonManage.load_file(config_json, '#   config  file loaded #')
         self.cmd = funcJsonManage.load_file(commands_json, '#   command file loaded #')
         self.events = funcJsonManage.load_file(events_json, '#   events  file loaded #')
+
+        # set execution environment
+        if dictionaries.DEPLOYS[deploy] is None:
+            print('#   wrong deploy arg    #')
+            print('# --- EXIT SEQUENCE --- #')
+            exit(1)
+        self.deploy = deploy
+        if self.deploy == dictionaries.DEPLOYS['release']:
+            print('#   deploy  : release   #')
+        else:
+            print('#   deploy  : debug     #')
 
         # init handlers
         print('#   handlers:           #')
@@ -116,7 +116,7 @@ class VAPORBOT2020:
 
         # create and assign slash commands
         for command in self.cmd:
-            if command == 'test' and deploy == 'release':
+            if command == 'test' and self.deploy == dictionaries.DEPLOYS['release']:
                 print('#   skip test command   #')
                 print('# --------------------- #')
             else:

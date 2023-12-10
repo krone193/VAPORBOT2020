@@ -44,15 +44,15 @@ if __name__ == '__main__':
         phy = sys.argv[2]
     except IndexError:
         deploy = 'debug'
-        phy = 'production'
+        phy = 'development'
 
-    if const.DEPLOYS.get(deploy) is None:
+    if const.DEPLOYS[deploy] is None:
         exit(1)
-    if const.PHYS.get(phy) is None:
+    if const.PHYS[phy] is None:
         exit(1)
 
     # adjust file path if in release environment
-    if const.PHYS.get(phy) == const.PHYS['production']:
+    if const.PHYS[phy] == const.PHYS['production']:
         env_file = release_file_path + env_file
         config_file = release_file_path + config_file
         commands_file = release_file_path + commands_file
@@ -62,7 +62,7 @@ if __name__ == '__main__':
     env = funcJsonManage.load_file(env_file, '')
 
     # run the bot
-    VAPORBOT2020 = VAPORBOT2020.VAPORBOT2020(config_file, commands_file, events_file, deploy)
+    VAPORBOT2020 = VAPORBOT2020.VAPORBOT2020(config_file, commands_file, events_file, const.DEPLOYS[deploy])
     VAPORBOT2020.run(env[deploy]['token'])
 
 # -------------------------------------------------------------------------------------------------------------------- #
