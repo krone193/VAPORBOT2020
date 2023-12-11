@@ -1,7 +1,7 @@
 # --- VAPORBOT2020.py ------------------------------------------------------------------------------------------------ #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 22/11/2023                                                                                           #
-# Last edit     : 10/12/2023                                                                                           #
+# Last edit     : 11/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : VAPORBOT2020, a Discord bot powered by aesthetic and nostalgia.                                      #
 #                 This file contains the main class for the bot, with all events, commands and loop tasks handling.    #
@@ -21,10 +21,11 @@
 #                           - option & choices      -> missing                                                         #
 #                       * reproduce from YouTube                                                                       #
 #                           - slash template        -> implemented                                                     #
-#                           - start random video    -> ongoing, link only                                              #
+#                           - start random video    -> implemented                                                     #
 #                           - track last random     -> implemented                                                     #
 #                           - stop video            -> missing                                                         #
-#                           - pause video           -> missing                                                         #
+#                           - pause video           -> implemented                                                     #
+#                           - resume video          -> implemented                                                     #
 #                       * deployed message                                                                             #
 #                           - send on trigger       -> missing                                                         #
 #                       * add activity and status                                                                      #
@@ -118,9 +119,15 @@ class VAPORBOT2020:
         for command in self.cmd:
             if command == 'test' and self.deploy == dictionaries.DEPLOYS['release']:
                 print('#   skip test command   #')
-            else:
-                self.slash_commands.append(handleCommand.SlashCommands(self.bot, self.cmd[command],
+            elif self.cmd[command]['type'] == 'embed':
+                self.slash_commands.append(handleCommand.EmbedCommands(self.bot,
+                                                                       self.cmd[command],
                                                                        self.responseHandler))
+            elif self.cmd[command]['type'] == 'music':
+                self.slash_commands.append(handleCommand.MusicCommands(self.bot,
+                                                                       self.cmd[command],
+                                                                       self.responseHandler,
+                                                                       self.musicHandler))
         print('#   slash commands  ok  #')
         print('# --------------------- #')
 

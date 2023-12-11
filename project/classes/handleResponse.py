@@ -1,7 +1,7 @@
 # --- handleResponse.py ---------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 29/11/2023                                                                                           #
-# Last edit     : 10/12/2023                                                                                           #
+# Last edit     : 11/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : class to populate embedded and text response on VAPORBOT2020's events                                #
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -59,9 +59,23 @@ class HandleResponse:
             return None
 
     # ---------------------------------------------------------------------------------------------------------------- #
-    def embed_command_response(self, interaction, data) -> discord.Embed:
+    def embed_command_response(self,
+                               interaction: discord.Interaction,
+                               data: str) -> discord.Embed:
         return self.embeds(title='',
                            description='',
+                           user=interaction.user,
+                           image=data,
+                           thumbnail='')
+
+    # ---------------------------------------------------------------------------------------------------------------- #
+    def embed_music_response(self,
+                             interaction: discord.Interaction,
+                             title: str,
+                             description: str,
+                             data: str) -> discord.Embed:
+        return self.embeds(title=title,
+                           description=description,
                            user=interaction.user,
                            image=data,
                            thumbnail='')

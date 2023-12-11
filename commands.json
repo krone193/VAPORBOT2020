@@ -158,7 +158,7 @@
 
   "explore_galaxies": {
     "name": "explore_galaxies",
-    "desc": "fasten your seatbelts and get ready for a ride across all galaxyes",
+    "desc": "fasten your seatbelts and get ready for a ride across all galaxies",
     "type": "music",
     "data": [
       "https://www.youtube.com/watch?v=oGWf8tQO__4",
@@ -173,11 +173,11 @@
     ],
     "success": {
       "desc": "░F░a░s░t░e░n░ ░y░o░u░r░ ░s░e░a░t░b░e░l░t░s░,░ ░r░i░d░e░r░:░ ░g░e░t░ ░r░e░a░d░y░ ░f░o░r░ ░l░i░f░t░ ░o░f░f░!░",
-      "data": ""
+      "data": [ ]
     },
     "error": {
       "desc": "You have to believe in yourself to survive in the Universe",
-      "data": "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
+      "data": [ "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif" ]
     }
   },
 
@@ -370,11 +370,19 @@
 
   "pause": {
     "name": "pause",
-    "desc": "░P░a░u░s░i░n░g░,░ ░r░e░a░l░i░t░y░ ░n░e░e░d░s░ ░y░o░u░",
+    "desc": "Wake up, darling",
     "type": "music",
     "data": [
-      "https://c.tenor.com/QxWHvmM7JfYAAAAd/getting-up-anime.gif"
-    ]
+      ""
+    ],
+    "success": {
+      "desc": "░P░a░u░s░i░n░g░,░ ░r░e░a░l░i░t░y░ ░n░e░e░d░s░ ░y░o░u░",
+      "data": [ "https://c.tenor.com/QxWHvmM7JfYAAAAd/getting-up-anime.gif" ]
+    },
+    "error": {
+      "desc": "Your D̷̝̥̘̣̮̀͆̚͝Ŗ̵̊̀͌͗E̴̘̚̕A̴̦̺̪̎̇͗ͅM̵̡̛͎̗͖̉̈́̀̿ͅŚ̸̡̘̠͓̉ are to strong",
+      "data": [ "https://c.tenor.com/wWvpEADBW2cAAAAC/tenor.gif" ]
+    }
   },
 
   "please": {
@@ -423,21 +431,29 @@
     ],
     "success": {
       "desc": "░B░e░ ░a░t░ ░e░a░s░e░, ░I░ ░w░i░l░l░ ░t░a░k░e░ ░c░a░r░e░ ░o░f░ ░y░o░u░",
-      "data": "https://c.tenor.com/UOu5DnxHRUYAAAAC/sad-anime.gif"
+      "data": [ "https://c.tenor.com/UOu5DnxHRUYAAAAC/sad-anime.gif" ]
     },
     "error": {
       "desc": "It never rains but it pours",
-      "data": "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
+      "data": [ "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif" ]
     }
   },
 
   "resume": {
     "name": "resume",
-    "desc": "░R░e░s░u░m░i░n░g░,░ ░w░h░e░r░e░ ░w░e░r░e░ ░w░e░?░",
+    "desc": "Go back to your D̷̝̥̘̣̮̀͆̚͝Ŗ̵̊̀͌͗E̴̘̚̕A̴̦̺̪̎̇͗ͅM̵̡̛͎̗͖̉̈́̀̿ͅŚ̸̡̘̠͓̉, darling",
     "type": "music",
     "data": [
       "https://c.tenor.com/s3lwSOIVsU4AAAAC/shiroi-suna-no-aquatope-the-aquatope-on-white-sand.gif"
-    ]
+    ],
+    "success": {
+      "desc": "░R░e░s░u░m░i░n░g░,░ ░w░h░e░r░e░ ░w░e░r░e░ ░w░e░?░",
+      "data": [ "https://c.tenor.com/EE07uXZKwF4AAAAC/tenor.gif" ]
+    },
+    "error": {
+      "desc": "What's holding you back?",
+      "data": [ "https://c.tenor.com/8wgPbFJ6MMYAAAAC/tenor.gif" ]
+    }
   },
 
   "sad": {
@@ -510,11 +526,11 @@
     ],
     "success": {
       "desc": "░R░e░l░a░x░ ░y░o░u░r░ ░m░i░n░d░,░ ░t░r░a░v░e░l░l░e░r░:░ ░t░h░e░ ░d░r░e░a░m░ ░m░a░c░h░i░n░e░ ░i░s░ ░b░o░o░t░i░n░g░",
-      "data": ""
+      "data": [ ]
     },
     "error": {
       "desc": "You have to relax to ride the train of thoughts",
-      "data": "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
+      "data": [ "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif" ]
     }
   },
 
