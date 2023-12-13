@@ -23,9 +23,11 @@
 #                           - slash template        -> implemented                                                     #
 #                           - start random video    -> implemented                                                     #
 #                           - track last random     -> implemented                                                     #
-#                           - stop video            -> missing                                                         #
+#                           - stop video            -> implemented                                                     #
 #                           - pause video           -> implemented                                                     #
 #                           - resume video          -> implemented                                                     #
+#                           - auto-disconnect       -> implemented                                                     #
+#                           - queue management      -> missing                                                         #
 #                       * deployed message                                                                             #
 #                           - send on trigger       -> missing                                                         #
 #                       * add activity and status                                                                      #

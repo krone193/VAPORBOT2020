@@ -372,9 +372,7 @@
     "name": "pause",
     "desc": "Wake up, darling",
     "type": "music",
-    "data": [
-      ""
-    ],
+    "data": [ "" ],
     "success": {
       "desc": "░P░a░u░s░i░n░g░,░ ░r░e░a░l░i░t░y░ ░n░e░e░d░s░ ░y░o░u░",
       "data": [ "https://c.tenor.com/QxWHvmM7JfYAAAAd/getting-up-anime.gif" ]
@@ -443,9 +441,7 @@
     "name": "resume",
     "desc": "Go back to your D̷̝̥̘̣̮̀͆̚͝Ŗ̵̊̀͌͗E̴̘̚̕A̴̦̺̪̎̇͗ͅM̵̡̛͎̗͖̉̈́̀̿ͅŚ̸̡̘̠͓̉, darling",
     "type": "music",
-    "data": [
-      "https://c.tenor.com/s3lwSOIVsU4AAAAC/shiroi-suna-no-aquatope-the-aquatope-on-white-sand.gif"
-    ],
+    "data": [ "" ],
     "success": {
       "desc": "░R░e░s░u░m░i░n░g░,░ ░w░h░e░r░e░ ░w░e░r░e░ ░w░e░?░",
       "data": [ "https://c.tenor.com/EE07uXZKwF4AAAAC/tenor.gif" ]
@@ -621,6 +617,25 @@
       "https://c.tenor.com/APIsjPJxtAUAAAAC/anime-sorry.gif",
       "https://c.tenor.com/lSwVx09EvFkAAAAC/jasorry-jaanime.gif"
     ]
+  },
+
+  "stop": {
+    "name": "stop",
+    "desc": "There's a time and a place for D̷̝̥̘̣̮̀͆̚͝Ŗ̵̊̀͌͗E̴̘̚̕A̴̦̺̪̎̇͗ͅM̵̡̛͎̗͖̉̈́̀̿ͅŚ̸̡̘̠͓̉,, but not now",
+    "type": "music",
+    "data": [ "" ],
+    "success": {
+      "desc": "░S░e░e░ ░y░o░u░ ░s░o░o░n░",
+      "data": [
+        "https://c.tenor.com/dpCVQtrSGjUAAAAC/tenor.gif"
+      ]
+    },
+    "error": {
+      "desc": "Wake up samurai",
+      "data": [
+        "https://c.tenor.com/KaWs1GTaYbUAAAAC/tenor.gif"
+      ]
+    }
   },
 
   "swish": {

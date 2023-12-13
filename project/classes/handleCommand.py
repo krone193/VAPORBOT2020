@@ -139,26 +139,28 @@ class MusicCommands(SlashCommands):
             await self.music(interaction)
 
     # slash music commands response ---------------------------------------------------------------------------------- #
+    def manage_music_commands(self, interaction: discord.Interaction, is_success: bool, message: str) -> discord.Embed:
+        self.rand = utils.get_random_index_within_data(self.rand, self.success['data'])
+        title = self.success['desc'] if is_success else self.error['desc']
+        data = self.success['data'][self.rand] if is_success else self.error['data'][self.rand]
+        return self.response_handle.embed_music_response(interaction, title, message, data)
+
+    # slash music commands response ---------------------------------------------------------------------------------- #
     async def music(self, interaction: discord.Interaction):
         # switch between possible functions
         if self.name == 'pause':
-            self.rand = utils.get_random_index_within_data(self.rand, self.success['data'])
-            await self.music_handle.pause()
-            embed = self.response_handle.embed_music_response(interaction,
-                                                              self.success['desc'],
-                                                              '',
-                                                              self.success['data'][self.rand])
+            message, success = await self.music_handle.pause()
+            embed = self.manage_music_commands(interaction, success, message)
         elif self.name == 'resume':
-            self.rand = utils.get_random_index_within_data(self.rand, self.success['data'])
-            await self.music_handle.resume()
-            embed = self.response_handle.embed_music_response(interaction,
-                                                              self.success['desc'],
-                                                              '',
-                                                              self.success['data'][self.rand])
+            message, success = await self.music_handle.resume()
+            embed = self.manage_music_commands(interaction, success, message)
+        elif self.name == 'stop':
+            message, success = await self.music_handle.disconnect()
+            embed = self.manage_music_commands(interaction, success, message)
         else:
             self.rand = utils.get_random_index_within_data(self.rand, self.data)
             song, success = await self.music_handle.play(interaction, self.data[self.rand])
-            if success == 0:
+            if success:
                 if len(self.success['data']) > 0:
                     self.sub_rand = utils.get_random_index_within_data(self.sub_rand, self.success['data'])
                     image = self.success['data'][self.sub_rand]
@@ -181,6 +183,7 @@ class MusicCommands(SlashCommands):
         print('*   command :', self.name)
         print('*   author  :', interaction.user.name)
         print('*   data    :', self.rand + 1, '/', len(self.data))
+        await self.music_handle.wait_end()
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # --- End of file ---------------------------------------------------------------------------------------------------- #
