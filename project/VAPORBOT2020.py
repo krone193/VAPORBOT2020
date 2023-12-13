@@ -97,7 +97,7 @@ class VAPORBOT2020:
         self.responseHandler = handleResponse.HandleResponse(config=self.config,
                                                              events=self.events)    # response handler
         print('#    └ response  -> ok  #')
-        self.musicHandler = handleMusic.HandleMusic(self.config, self.cmd)          # music handler
+        self.musicHandler = handleMusic.HandleMusic()                               # music handler
         print('#    └ music     -> ok  #')
 
         # init intents

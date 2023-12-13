@@ -147,6 +147,7 @@ class MusicCommands(SlashCommands):
 
     # slash music commands response ---------------------------------------------------------------------------------- #
     async def music(self, interaction: discord.Interaction):
+        en_stream_end_routine = False
         # switch between possible functions
         if self.name == 'pause':
             message, success = await self.music_handle.pause()
@@ -161,6 +162,7 @@ class MusicCommands(SlashCommands):
             self.rand = utils.get_random_index_within_data(self.rand, self.data)
             song, success = await self.music_handle.play(interaction, self.data[self.rand])
             if success:
+                en_stream_end_routine = True
                 if len(self.success['data']) > 0:
                     self.sub_rand = utils.get_random_index_within_data(self.sub_rand, self.success['data'])
                     image = self.success['data'][self.sub_rand]
@@ -183,7 +185,8 @@ class MusicCommands(SlashCommands):
         print('*   command :', self.name)
         print('*   author  :', interaction.user.name)
         print('*   data    :', self.rand + 1, '/', len(self.data))
-        await self.music_handle.wait_end()
+        if en_stream_end_routine:
+            await self.music_handle.wait_end()
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # --- End of file ---------------------------------------------------------------------------------------------------- #

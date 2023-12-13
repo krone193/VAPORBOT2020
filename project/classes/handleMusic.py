@@ -48,16 +48,12 @@ class YTDLSource(discord.PCMVolumeTransformer):
 # -------------------------------------------------------------------------------------------------------------------- #
 class HandleMusic(commands.Cog):
     # Variables ------------------------------------------------------------------------------------------------------ #
-    config: json
-    cmd: json
-    is_playing: bool
-    is_paused: bool
+    is_playing = False
+    is_paused = False
     ytdl: YoutubeDL
 
     # Init: pass a py json object as config -------------------------------------------------------------------------- #
-    def __init__(self, config: json, cmd: json):
-        self.config = config
-        self.cmd = cmd
+    def __init__(self):
         self.is_playing = False
         self.is_paused = False
 
@@ -75,7 +71,7 @@ class HandleMusic(commands.Cog):
         loop = asyncio.get_event_loop()
         data = await loop.run_in_executor(None, lambda: self.ytdl.extract_info(url, download=False))
         song = data['url']
-        self.vc.play(discord.FFmpegPCMAudio(song, **dictionaries.FFMPEG_OPTIONS))
+        self.vc.play(discord.FFmpegPCMAudio(song, **dictionaries.FFMPEG_OPTIONS), after=self.signal_stream_end)
         return data, True
 
     async def play(self, interaction: discord.Interaction, url: str) -> [any, bool]:
@@ -88,7 +84,14 @@ class HandleMusic(commands.Cog):
         else:
             if self.is_playing:
                 await self.vc.disconnect()
-            return await self.play_music(voice_channel, url)
+            return await self.play_music(voice_channel, 'https://www.youtube.com/watch?v=GALGzXLaZzs')
+
+    def signal_stream_end(self, any=None):
+        self.is_playing = False
+        self.is_paused = False
+        print('\n* event | stream closed')
+        print(f"*   playing : {self.is_playing}")
+        print(f"*   paused  : {self.is_paused}")
 
     async def wait_end(self):
         if self.vc is not None:
