@@ -15,7 +15,6 @@ from discord.ext import commands
 from yt_dlp import YoutubeDL
 # Python libraries --------------------------------------------------------------------------------------------------- #
 import asyncio
-import time
 import json
 # Project constants -------------------------------------------------------------------------------------------------- #
 import project.constants.dictionaries as dictionaries
@@ -84,7 +83,7 @@ class HandleMusic(commands.Cog):
         else:
             if self.is_playing:
                 await self.vc.disconnect()
-            return await self.play_music(voice_channel, 'https://www.youtube.com/watch?v=GALGzXLaZzs')
+            return await self.play_music(voice_channel, url)
 
     def signal_stream_end(self, any=None):
         self.is_playing = False
