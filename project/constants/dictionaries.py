@@ -1,7 +1,7 @@
 # --- dictionaries.py ------------------------------------------------------------------------------------------------ #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 09/12/2023                                                                                           #
-# Last edit     : 10/12/2023                                                                                           #
+# Last edit     : 20/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : CONST list of all dictionaries and const for VAPORBOT2020                                            #
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -32,6 +32,11 @@ ACTIVITIES = {
 # -------------------------------------------------------------------------------------------------------------------- #
 YTDL_OPTIONS = {
     'format': 'bestaudio/best',
+    'postprocessors': [{
+        'key': 'FFmpegExtractAudio',
+        'preferredcodec': 'mp3',
+        'preferredquality': '320',
+    }],
     'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
     'restrictfilenames': True,
     'noplaylist': True,
@@ -45,6 +50,7 @@ YTDL_OPTIONS = {
 }
 # -------------------------------------------------------------------------------------------------------------------- #
 FFMPEG_OPTIONS = {
+    'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5',
     'options': '-vn'
 }
 

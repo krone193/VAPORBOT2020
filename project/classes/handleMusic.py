@@ -1,7 +1,7 @@
 # --- handleMusic.py ------------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 07/12/2023                                                                                           #
-# Last edit     : 11/12/2023                                                                                           #
+# Last edit     : 20/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : class to manage YouTube reproduction on Discord's voice channels                                     #
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -15,7 +15,6 @@ from discord.ext import commands
 from yt_dlp import YoutubeDL
 # Python libraries --------------------------------------------------------------------------------------------------- #
 import asyncio
-import json
 # Project constants -------------------------------------------------------------------------------------------------- #
 import project.constants.dictionaries as dictionaries
 
@@ -49,26 +48,27 @@ class HandleMusic(commands.Cog):
     # Variables ------------------------------------------------------------------------------------------------------ #
     is_playing = False
     is_paused = False
+    vc = None
     ytdl: YoutubeDL
+    loop: asyncio.AbstractEventLoop
 
     # Init: pass a py json object as config -------------------------------------------------------------------------- #
     def __init__(self):
         self.is_playing = False
         self.is_paused = False
-
         self.vc = None
         self.ytdl = YoutubeDL(dictionaries.YTDL_OPTIONS)
 
     async def play_music(self, voice_channel, url: str) -> [any, bool]:
-        # try to connect to voice channel if you are not already connected
+        # try to connect to voice channel
         if self.vc is None or not self.vc.is_connected():
             self.vc = await voice_channel.connect()
             # in case we fail to connect
             if self.vc is None:
                 return 'Could not connect to the voice channel', False
         self.is_playing = True
-        loop = asyncio.get_event_loop()
-        data = await loop.run_in_executor(None, lambda: self.ytdl.extract_info(url, download=False))
+        self.loop = asyncio.get_event_loop()
+        data = await self.loop.run_in_executor(None, lambda: self.ytdl.extract_info(url, download=False))
         song = data['url']
         self.vc.play(discord.FFmpegPCMAudio(song, **dictionaries.FFMPEG_OPTIONS), after=self.signal_stream_end)
         return data, True
@@ -85,16 +85,22 @@ class HandleMusic(commands.Cog):
                 await self.vc.disconnect()
             return await self.play_music(voice_channel, url)
 
-    def signal_stream_end(self, any=None):
+    def signal_stream_end(self, error):
         self.is_playing = False
         self.is_paused = False
         print('\n* event | stream closed')
         print(f"*   playing : {self.is_playing}")
         print(f"*   paused  : {self.is_paused}")
+        coro = self.vc.disconnect()
+        fut = asyncio.run_coroutine_threadsafe(coro, self.loop)
+        try:
+            fut.result()
+        except:
+            pass
 
     async def wait_end(self):
         if self.vc is not None:
-            while self.vc.is_playing() or self.is_paused:
+            while self.is_playing or self.is_paused:
                 await asyncio.sleep(1)
             await self.disconnect()
 

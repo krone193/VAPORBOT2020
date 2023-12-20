@@ -1,7 +1,7 @@
 # --- handleCommand.py ----------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 08/12/2023                                                                                           #
-# Last edit     : 11/12/2023                                                                                           #
+# Last edit     : 20/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : class to manage all type of bot slash commands                                                       #
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -13,6 +13,7 @@ import discord
 from discord.ext import commands
 # Python libraries --------------------------------------------------------------------------------------------------- #
 import json
+import asyncio
 # Project classes ---------------------------------------------------------------------------------------------------- #
 import project.classes.handleResponse as handleResponse
 import project.classes.handleMusic as handleMusic
@@ -147,7 +148,12 @@ class MusicCommands(SlashCommands):
 
     # slash music commands response ---------------------------------------------------------------------------------- #
     async def music(self, interaction: discord.Interaction):
-        en_stream_end_routine = False
+        # save origin channel to send command output
+        channel = interaction.channel
+        # respond to interaction to avoid possible timeouts
+        await interaction.response.send_message(content="Channeling nostalgia (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
+                                                ephemeral=True,
+                                                delete_after=3)
         # switch between possible functions
         if self.name == 'pause':
             message, success = await self.music_handle.pause()
@@ -160,33 +166,31 @@ class MusicCommands(SlashCommands):
             embed = self.manage_music_commands(interaction, success, message)
         else:
             self.rand = utils.get_random_index_within_data(self.rand, self.data)
-            song, success = await self.music_handle.play(interaction, self.data[self.rand])
+            result, success = await self.music_handle.play(interaction, self.data[self.rand])
             if success:
-                en_stream_end_routine = True
                 if len(self.success['data']) > 0:
                     self.sub_rand = utils.get_random_index_within_data(self.sub_rand, self.success['data'])
                     image = self.success['data'][self.sub_rand]
                 else:
-                    image = song['thumbnail']
+                    image = result['thumbnail']
                 embed = self.response_handle.embed_music_response(interaction,
-                                                                  self.success['desc'] + '\n' + song['title'],
+                                                                  self.success['desc'] + '\n' + result['title'],
                                                                   '',
                                                                   image)
             else:
                 self.sub_rand = utils.get_random_index_within_data(self.sub_rand, self.error['data'])
                 embed = self.response_handle.embed_music_response(interaction,
                                                                   self.error['desc'],
-                                                                  'You need to connect to a voice channel first!',
+                                                                  result,
                                                                   self.error['data'][self.sub_rand])
-        await interaction.response.send_message(embed=embed, ephemeral=False)
+        # send command output
+        await channel.send(embed=embed)
         print('\n* event | slash command')
         print('*   server  :', interaction.guild.name)
         print('*   channel :', interaction.channel.name)
         print('*   command :', self.name)
         print('*   author  :', interaction.user.name)
         print('*   data    :', self.rand + 1, '/', len(self.data))
-        if en_stream_end_routine:
-            await self.music_handle.wait_end()
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # --- End of file ---------------------------------------------------------------------------------------------------- #

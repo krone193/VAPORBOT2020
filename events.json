@@ -23,13 +23,25 @@
     "minutes": [ 0, 0 ]
   },
 
-  "event_MORNING": {
+  "event_MORNING_ELFA": {
+    "server": "cipolle",
+    "channel": "general_channel",
+    "title": "°˖✧◝(⁰▿⁰)◜✧˖°  H E L L O  °˖✧◝(⁰▿⁰)◜✧˖°",
+    "desc": "Let this positive energy fill your day with determination <3",
+    "data": "https://c.tenor.com/qb_jlqal_gcAAAAC/tenor.gif",
+    "content": "<@&1166642794375413801>",
+    "iso_weekdays": [ 1, 2, 3, 4, 5 ],
+    "hours": [ 8 ],
+    "minutes": [ 0 ]
+  },
+
+  "event_MORNING_CISA": {
     "server": "cipolle",
     "channel": "general_channel",
     "title": "°˖✧◝(⁰▿⁰)◜✧˖°  H E L L O  °˖✧◝(⁰▿⁰)◜✧˖°",
     "desc": "Let this positive energy fill your day with determination <3",
     "data": "https://c.tenor.com/phH0IQwbox8AAAAC/i-got-this-anime.gif",
-    "content": "@everyone",
+    "content": "<@&975732345099403365>",
     "iso_weekdays": [ 1, 2, 3, 4, 5 ],
     "hours": [ 8 ],
     "minutes": [ 30 ]

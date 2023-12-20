@@ -663,7 +663,24 @@
       "https://c.tenor.com/_hFFcCCh2SEAAAAC/girly-air-force-gripen.gif"
     ]
   },
-
+  "tassoni": {
+    "name": "tassoni",
+    "desc": "pure nostalgia juice",
+    "type": "music",
+    "data": [
+      "https://www.youtube.com/watch?v=GALGzXLaZzs"
+    ],
+    "success": {
+      "desc": "░R░E░F░R░E░S░H░I░N░G░",
+      "data": [ ]
+    },
+    "error": {
+      "desc": "Don't you like Tassoni?",
+      "data": [
+        "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
+      ]
+    }
+    },
   "test": {
     "name": "test",
     "desc": "test new slash command implementation",
