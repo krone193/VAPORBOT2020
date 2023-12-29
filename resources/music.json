@@ -1,0 +1,163 @@
+{
+  "explore_galaxies": {
+    "name": "explore_galaxies",
+    "desc": "fasten your seatbelts and get ready for a ride across all galaxies",
+    "type": "music",
+    "data": [
+      "https://www.youtube.com/watch?v=oGWf8tQO__4",
+      "https://www.youtube.com/watch?v=YP9nrR-ym3c",
+      "https://www.youtube.com/watch?v=nQfBoWU3Nxw",
+      "https://www.youtube.com/watch?v=9nRbuFtHywo",
+      "https://www.youtube.com/watch?v=ea_UOPzuyZU",
+      "https://www.youtube.com/watch?v=t1LguJbIF3I",
+      "https://www.youtube.com/watch?v=YTRHBA7Ld0k",
+      "https://www.youtube.com/watch?v=_AXIOfilxi0",
+      "https://www.youtube.com/watch?v=E6ZKYrAi8NQ"
+    ],
+    "success": {
+      "desc": "░F░a░s░t░e░n░ ░y░o░u░r░ ░s░e░a░t░b░e░l░t░s░,░ ░r░i░d░e░r░:░ ░g░e░t░ ░r░e░a░d░y░ ░f░o░r░ ░l░i░f░t░ ░o░f░f░!░",
+      "data": [ ]
+    },
+    "error": {
+      "desc": "You have to believe in yourself to survive in the Universe",
+      "data": [ "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif" ]
+    }
+  },
+
+  "pause": {
+    "name": "pause",
+    "desc": "Wake up, darling",
+    "type": "music",
+    "data": [ "" ],
+    "success": {
+      "desc": "░P░a░u░s░i░n░g░,░ ░r░e░a░l░i░t░y░ ░n░e░e░d░s░ ░y░o░u░",
+      "data": [ "https://c.tenor.com/QxWHvmM7JfYAAAAd/getting-up-anime.gif" ]
+    },
+    "error": {
+      "desc": "Your D̷̝̥̘̣̮̀͆̚͝Ŗ̵̊̀͌͗E̴̘̚̕A̴̦̺̪̎̇͗ͅM̵̡̛͎̗͖̉̈́̀̿ͅŚ̸̡̘̠͓̉ are to strong",
+      "data": [ "https://c.tenor.com/wWvpEADBW2cAAAAC/tenor.gif" ]
+    }
+  },
+
+  "rainy_mood": {
+    "name": "rainy_mood",
+    "desc": "allow the dream machine to lull your sorrow",
+    "type": "music",
+    "data": [
+      "https://www.youtube.com/watch?v=WnFs85pLmj4",
+      "https://www.youtube.com/watch?v=Nu48Z45ibxQ",
+      "https://www.youtube.com/watch?v=sx31YcLXAug",
+      "https://www.youtube.com/watch?v=waoKj8tAb7A",
+      "https://www.youtube.com/watch?v=L1w2_2WG5q4",
+      "https://www.youtube.com/watch?v=8lvNjO3TQAA",
+      "https://www.youtube.com/watch?v=U92QEmtR63E",
+      "https://www.youtube.com/watch?v=ttLRonyyMak",
+      "https://www.youtube.com/watch?v=ymouzrzzgZ0",
+      "https://www.youtube.com/watch?v=h_vZtpjNKVE",
+
+      "https://www.youtube.com/watch?v=nqEk73LvnzQ",
+      "https://www.youtube.com/watch?v=NONg06Pf0v8",
+      "https://www.youtube.com/watch?v=MyVFBkHepRw",
+      "https://www.youtube.com/watch?v=2oYaEHzn6Kg",
+      "https://www.youtube.com/watch?v=zf8YUL_jlF0",
+      "https://www.youtube.com/watch?v=vJpAIOFN5WQ",
+      "https://www.youtube.com/watch?v=FyuQMTkdFaU",
+      "https://www.youtube.com/watch?v=_u3l7Dd_WDc",
+      "https://www.youtube.com/watch?v=tC1DjgbVYY0",
+      "https://www.youtube.com/watch?v=-C7ZsVuG2fY",
+
+      "https://www.youtube.com/watch?v=c6f4lJVwMs8"
+    ],
+    "success": {
+      "desc": "░B░e░ ░a░t░ ░e░a░s░e░, ░I░ ░w░i░l░l░ ░t░a░k░e░ ░c░a░r░e░ ░o░f░ ░y░o░u░",
+      "data": [ "https://c.tenor.com/UOu5DnxHRUYAAAAC/sad-anime.gif" ]
+    },
+    "error": {
+      "desc": "It never rains but it pours",
+      "data": [ "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif" ]
+    }
+  },
+
+  "resume": {
+    "name": "resume",
+    "desc": "Go back to your D̷̝̥̘̣̮̀͆̚͝Ŗ̵̊̀͌͗E̴̘̚̕A̴̦̺̪̎̇͗ͅM̵̡̛͎̗͖̉̈́̀̿ͅŚ̸̡̘̠͓̉, darling",
+    "type": "music",
+    "data": [ "" ],
+    "success": {
+      "desc": "░R░e░s░u░m░i░n░g░,░ ░w░h░e░r░e░ ░w░e░r░e░ ░w░e░?░",
+      "data": [ "https://c.tenor.com/EE07uXZKwF4AAAAC/tenor.gif" ]
+    },
+    "error": {
+      "desc": "What's holding you back?",
+      "data": [ "https://c.tenor.com/8wgPbFJ6MMYAAAAC/tenor.gif" ]
+    }
+  },
+
+  "shifting_dreams": {
+    "name": "shifting_dreams",
+    "desc": "relax your mind, traveller. Let the dream machine run",
+    "type": "music",
+    "data": [
+      "https://www.youtube.com/watch?v=BgQXB-K-JE8",
+      "https://www.youtube.com/watch?v=DVp544ddupo",
+      "https://www.youtube.com/watch?v=lAPGtQN46lE",
+      "https://www.youtube.com/watch?v=Ao2KofI8RsA",
+      "https://www.youtube.com/watch?v=fzU0db_F100",
+      "https://www.youtube.com/watch?v=9nRbuFtHywo",
+      "https://www.youtube.com/watch?v=nQfBoWU3Nxw",
+      "https://www.youtube.com/watch?v=QdopZ6jlqVI",
+      "https://www.youtube.com/watch?v=ZYj5WnhoIUw",
+      "https://www.youtube.com/watch?v=bXT5kC7-mpE",
+      "https://www.youtube.com/watch?v=nSk8S2m4qtk",
+      "https://www.youtube.com/watch?v=oZ71RokWFNs",
+      "https://www.youtube.com/watch?v=jEOnbNzYbIM",
+      "https://www.youtube.com/watch?v=0Ft7Q_TrjFY"
+    ],
+    "success": {
+      "desc": "░R░e░l░a░x░ ░y░o░u░r░ ░m░i░n░d░,░ ░t░r░a░v░e░l░l░e░r░:░ ░t░h░e░ ░d░r░e░a░m░ ░m░a░c░h░i░n░e░ ░i░s░ ░b░o░o░t░i░n░g░",
+      "data": [ ]
+    },
+    "error": {
+      "desc": "You have to relax to ride the train of thoughts",
+      "data": [ "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif" ]
+    }
+  },
+
+  "stop": {
+    "name": "stop",
+    "desc": "There's a time and a place for D̷̝̥̘̣̮̀͆̚͝Ŗ̵̊̀͌͗E̴̘̚̕A̴̦̺̪̎̇͗ͅM̵̡̛͎̗͖̉̈́̀̿ͅŚ̸̡̘̠͓̉,, but not now",
+    "type": "music",
+    "data": [ "" ],
+    "success": {
+      "desc": "░S░e░e░ ░y░o░u░ ░s░o░o░n░",
+      "data": [
+        "https://c.tenor.com/fAi47PMe9ckAAAAC/tenor.gif"
+      ]
+    },
+    "error": {
+      "desc": "Wake up samurai",
+      "data": [
+        "https://c.tenor.com/dpCVQtrSGjUAAAAC/tenor.gif"
+      ]
+    }
+  },
+
+  "tassoni": {
+    "name": "tassoni",
+    "desc": "pure nostalgia juice",
+    "type": "music",
+    "data": [
+      "https://www.youtube.com/watch?v=GALGzXLaZzs"
+    ],
+    "success": {
+      "desc": "░R░E░F░R░E░S░H░I░N░G░",
+      "data": [ ]
+    },
+    "error": {
+      "desc": "Don't you like Tassoni?",
+      "data": [
+        "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
+      ]
+    }
+  }
+}

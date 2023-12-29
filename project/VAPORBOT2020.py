@@ -1,7 +1,7 @@
 # --- VAPORBOT2020.py ------------------------------------------------------------------------------------------------ #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 22/11/2023                                                                                           #
-# Last edit     : 11/12/2023                                                                                           #
+# Last edit     : 29/12/2023                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : VAPORBOT2020, a Discord bot powered by aesthetic and nostalgia.                                      #
 #                 This file contains the main class for the bot, with all events, commands and loop tasks handling.    #
@@ -61,7 +61,9 @@ class VAPORBOT2020:
     # Variables ------------------------------------------------------------------------------------------------------ #
     bot: commands.Bot
     config: json
-    cmd: json
+    holidays: json
+    mood_cmd: json
+    music_cmd: json
     events: json
     deploy: str
     status: discord.Status
@@ -73,12 +75,21 @@ class VAPORBOT2020:
     slash_commands = list()
 
     # Init: pass a .js file name for 'config' and 'commands' arguments ----------------------------------------------- #
-    def __init__(self, config_json: str, commands_json: str, events_json: str, deploy: str):
+    def __init__(self,
+                 config_json: str,
+                 holidays_json: str,
+                 mood_json: str,
+                 music_json: str,
+                 events_json: str,
+                 deploy: str
+                 ):
         print('# --- INIT SEQUENCE --- #')
 
         # load configuration and content JSON files
         self.config = funcJsonManage.load_file(config_json, '#   config  file loaded #')
-        self.cmd = funcJsonManage.load_file(commands_json, '#   command file loaded #')
+        self.holidays = funcJsonManage.load_file(holidays_json, '#   holiday file loaded #')
+        self.mood_cmd = funcJsonManage.load_file(mood_json, '#   mood    file loaded #')
+        self.music_cmd = funcJsonManage.load_file(music_json, '#   music   file loaded #')
         self.events = funcJsonManage.load_file(events_json, '#   events  file loaded #')
 
         # set execution environment
@@ -117,20 +128,26 @@ class VAPORBOT2020:
                                 allowed_mention=discord.AllowedMentions(everyone=True))
         print('#   discord bot created #')
 
-        # create and assign slash commands
-        for command in self.cmd:
+        # create and assign mood slash commands
+        for command in self.mood_cmd:
             if command == 'test' and self.deploy == dictionaries.DEPLOYS['release']:
                 print('#   skip test command   #')
-            elif self.cmd[command]['type'] == 'embed':
-                self.slash_commands.append(handleCommand.EmbedCommands(self.bot,
-                                                                       self.cmd[command],
-                                                                       self.responseHandler))
-            elif self.cmd[command]['type'] == 'music':
+            elif self.mood_cmd[command]['type'] == 'mood':
+                self.slash_commands.append(handleCommand.MoodCommands(self.bot,
+                                                                      self.mood_cmd[command],
+                                                                      self.responseHandler))
+        print('#   mood commands   ok  #')
+
+        # create and assign music slash commands
+        for command in self.music_cmd:
+            if command == 'test' and self.deploy == dictionaries.DEPLOYS['release']:
+                print('#   skip test command   #')
+            elif self.music_cmd[command]['type'] == 'music':
                 self.slash_commands.append(handleCommand.MusicCommands(self.bot,
-                                                                       self.cmd[command],
+                                                                       self.music_cmd[command],
                                                                        self.responseHandler,
                                                                        self.musicHandler))
-        print('#   slash commands  ok  #')
+        print('#   music commands  ok  #')
         print('# --------------------- #')
 
         # show version
@@ -235,7 +252,16 @@ class VAPORBOT2020:
         print('\n* event | timed_events')
         print(f'*   {self.dt.strftime("%d/%m/%Y %H:%M:%S")}')
         for event in self.events:
-            if (self.dt.isoweekday() in self.events[event]['iso_weekdays']      # check if on event's weekday(s)
+            # check if in a national holiday
+            if self.dt.strftime("%d/%m") in self.holidays["holidays"]:
+                continue
+            # if CISA event, check for specific closure days
+            elif (event.find("CISA") >= 0) and (self.dt.strftime("%d/%m") in self.holidays["CISA"]):
+                continue
+            # if ElFa event, check for specific closure days
+            elif (event.find("ELFA") >= 0) and (self.dt.strftime("%d/%m") in self.holidays["ELFA"]):
+                continue
+            elif (self.dt.isoweekday() in self.events[event]['iso_weekdays']    # check if on event's weekday(s)
                     and self.dt.hour in self.events[event]['hours']             # check if on event's hour(s)
                     and self.dt.minute in self.events[event]['minutes']):       # check if on event's minute(s)
                 channel = self.bot.get_channel(self.config[self.events[event]['server']][self.events[event]['channel']])

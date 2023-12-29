@@ -83,7 +83,7 @@
     "minutes": [ 35 ]
   },
 
-  "event_VAPORDEV_01": {
+  "event_VAPORDEV_CISA": {
     "server": "cipolle",
     "channel": "debug_channel",
     "title": "T E S T   0 1",
@@ -95,7 +95,7 @@
     "minutes": [ 0 ]
   },
 
-  "event_VAPORDEV_02": {
+  "event_VAPORDEV_ELFA": {
     "server": "cipolle",
     "channel": "debug_channel",
     "title": "T E S T   0 2",
