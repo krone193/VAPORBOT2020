@@ -2,6 +2,7 @@
   "event_COFFEE": {
     "server": "cipolle",
     "channel": "coffee_channel",
+    "type": "message",
     "title": "(￣ρ￣)..zzZZ C O F F E E T I M E ლ(ಠ_ಠ ლ)",
     "desc": "Let's go drink some coffee, pls (♡˙︶˙♡)",
     "data": "https://c.tenor.com/iDy78BQ8324AAAAC/anime-smell.gif",
@@ -14,6 +15,7 @@
   "event_ANGS": {
     "server": "cipolle",
     "channel": "coffee_channel",
+    "type": "message",
     "title": "(っ´ω`)ﾉ(╥ω╥) A N G S  I ' M  H E R E ヽ(￣ω￣(。。 )ゝ",
     "desc": "Your determination is remarkable. \n I'll always be here for you ♡( ◡‿◡ )",
     "data": "https://c.tenor.com/qGn2vL8tTMUAAAAC/yuri-reina-kousaka.gif",
@@ -26,6 +28,7 @@
   "event_MORNING_ELFA": {
     "server": "cipolle",
     "channel": "general_channel",
+    "type": "message",
     "title": "°˖✧◝(⁰▿⁰)◜✧˖°  H E L L O  °˖✧◝(⁰▿⁰)◜✧˖°",
     "desc": "Let this positive energy fill your day with determination <3",
     "data": "https://c.tenor.com/qb_jlqal_gcAAAAC/tenor.gif",
@@ -38,6 +41,7 @@
   "event_MORNING_CISA": {
     "server": "cipolle",
     "channel": "general_channel",
+    "type": "message",
     "title": "°˖✧◝(⁰▿⁰)◜✧˖°  H E L L O  °˖✧◝(⁰▿⁰)◜✧˖°",
     "desc": "Let this positive energy fill your day with determination <3",
     "data": "https://c.tenor.com/phH0IQwbox8AAAAC/i-got-this-anime.gif",
@@ -50,6 +54,7 @@
   "event_LUNCH": {
     "server": "cipolle",
     "channel": "general_channel",
+    "type": "message",
     "title": "(ﾉ´ヮ`)ﾉ  Y U M M Y  ＼(￣▽￣)／",
     "desc": "Another morning is gone, stay determined!",
     "data": "https://c.tenor.com/GRUsbHL9C_IAAAAC/zerotwo.gif",
@@ -62,6 +67,7 @@
   "event_BYE_ELFA": {
     "server": "cipolle",
     "channel": "general_channel",
+    "type": "message",
     "title": "o(≧▽≦)o ☆  E L F A  ☆～('▽^人)",
     "desc": "Another day has passed, see ya and love to all of you :3",
     "data": "https://c.tenor.com/Rf5v6glMta8AAAAC/hey-waves.gif",
@@ -74,6 +80,7 @@
   "event_BYE_CISA": {
     "server": "cipolle",
     "channel": "general_channel",
+    "type": "message",
     "title": "o(≧▽≦)o ☆  C I S A  ☆～('▽^人)",
     "desc": "Another day has passed, see ya and love to all of you :3",
     "data": "https://media.tenor.com/FSK1EksixakAAAAC/thumbs-up-anime.gif",
@@ -83,9 +90,23 @@
     "minutes": [ 35 ]
   },
 
+  "event_COFFI_Delete": {
+    "server": "cipolle",
+    "channel": "coffee_channel",
+    "type": "delete",
+    "title": "",
+    "desc": "",
+    "data": "",
+    "content": "",
+    "iso_weekdays": [ 1, 2, 3, 4, 5, 6, 7 ],
+    "hours": [ 0 ],
+    "minutes": [ 0 ]
+  },
+
   "event_VAPORDEV_CISA": {
     "server": "cipolle",
     "channel": "debug_channel",
+    "type": "message",
     "title": "T E S T   0 1",
     "desc": "On time events test 1",
     "data": "https://media1.tenor.com/m/aEBQX-PoSmcAAAAC/anime-lab.gif",
@@ -98,6 +119,7 @@
   "event_VAPORDEV_ELFA": {
     "server": "cipolle",
     "channel": "debug_channel",
+    "type": "message",
     "title": "T E S T   0 2",
     "desc": "On time events test 2",
     "data": "https://media1.tenor.com/m/aEBQX-PoSmcAAAAC/anime-lab.gif",

@@ -33,6 +33,8 @@
 #                       * add activity and status                                                                      #
 #                           - set activity          -> implemented                                                     #
 #                           - set status            -> implemented                                                     #
+#                       * purge channel at fixed time                                                                  #
+#                           - manage delete event   -> implemented                                                     #
 # -------------------------------------------------------------------------------------------------------------------- #
 
 
@@ -106,9 +108,9 @@ class VAPORBOT2020:
         # init handlers
         print('#   handlers:           #')
         self.responseHandler = handleResponse.HandleResponse(config=self.config,
-                                                             events=self.events)    # response handler
+                                                             events=self.events)  # response handler
         print('#    └ response  -> ok  #')
-        self.musicHandler = handleMusic.HandleMusic()                               # music handler
+        self.musicHandler = handleMusic.HandleMusic()  # music handler
         print('#    └ music     -> ok  #')
 
         # init intents
@@ -252,21 +254,34 @@ class VAPORBOT2020:
         print('\n* event | timed_events')
         print(f'*   {self.dt.strftime("%d/%m/%Y %H:%M:%S")}')
         for event in self.events:
-            # check if in a national holiday
-            if self.dt.strftime("%d/%m") in self.holidays["holidays"]:
-                continue
-            # if CISA event, check for specific closure days
-            elif (event.find("CISA") >= 0) and (self.dt.strftime("%d/%m") in self.holidays["CISA"]):
-                continue
-            # if ElFa event, check for specific closure days
-            elif (event.find("ELFA") >= 0) and (self.dt.strftime("%d/%m") in self.holidays["ELFA"]):
-                continue
-            elif (self.dt.isoweekday() in self.events[event]['iso_weekdays']    # check if on event's weekday(s)
-                    and self.dt.hour in self.events[event]['hours']             # check if on event's hour(s)
-                    and self.dt.minute in self.events[event]['minutes']):       # check if on event's minute(s)
-                channel = self.bot.get_channel(self.config[self.events[event]['server']][self.events[event]['channel']])
-                embed = self.responseHandler.embed_timed_event(self.events[event])      # create event embed
-                await channel.send(embed=embed, content=self.events[event]['content'])  # send event message
+            # check if on event trigger
+            if (self.dt.isoweekday() in self.events[event]['iso_weekdays']  # check if on event's weekday(s)
+                    and self.dt.hour in self.events[event]['hours']         # check if on event's hour(s)
+                    and self.dt.minute in self.events[event]['minutes']):   # check if on event's minute(s)
+                # switch for event types
+                match self.events[event]['type']:
+                    case 'delete':
+                        # purge channel content
+                        print(f'*   purging {self.events[event]["channel"]}')
+                        channel = self.bot.get_channel(
+                            self.config[self.events[event]['server']][self.events[event]['channel']])
+                        await channel.purge()
+                        print(f'*   {self.events[event]["channel"]} purged')
+                    case 'message':
+                        # check if in a national holiday
+                        if self.dt.strftime("%d/%m") in self.holidays["holidays"]:
+                            continue
+                        # if CISA event, check for specific closure days
+                        elif (event.find("CISA") >= 0) and (self.dt.strftime("%d/%m") in self.holidays["CISA"]):
+                            continue
+                        # if ElFa event, check for specific closure days
+                        elif (event.find("ELFA") >= 0) and (self.dt.strftime("%d/%m") in self.holidays["ELFA"]):
+                            continue
+                        # manage message creation and send
+                        channel = self.bot.get_channel(
+                            self.config[self.events[event]['server']][self.events[event]['channel']])
+                        embed = self.responseHandler.embed_timed_event(self.events[event])      # create event embed
+                        await channel.send(embed=embed, content=self.events[event]['content'])  # send event message
 
     # Semaphore for scheduled events handling task ------------------------------------------------------------------- #
     @timed_events_task.before_loop
