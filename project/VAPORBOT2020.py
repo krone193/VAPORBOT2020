@@ -258,30 +258,31 @@ class VAPORBOT2020:
             if (self.dt.isoweekday() in self.events[event]['iso_weekdays']  # check if on event's weekday(s)
                     and self.dt.hour in self.events[event]['hours']         # check if on event's hour(s)
                     and self.dt.minute in self.events[event]['minutes']):   # check if on event's minute(s)
-                # switch for event types
-                match self.events[event]['type']:
-                    case 'delete':
-                        # purge channel content
-                        print(f'*   purging {self.events[event]["channel"]}')
-                        channel = self.bot.get_channel(
-                            self.config[self.events[event]['server']][self.events[event]['channel']])
-                        await channel.purge()
-                        print(f'*   {self.events[event]["channel"]} purged')
-                    case 'message':
-                        # check if in a national holiday
-                        if self.dt.strftime("%d/%m") in self.holidays["holidays"]:
-                            continue
-                        # if CISA event, check for specific closure days
-                        elif (event.find("CISA") >= 0) and (self.dt.strftime("%d/%m") in self.holidays["CISA"]):
-                            continue
-                        # if ElFa event, check for specific closure days
-                        elif (event.find("ELFA") >= 0) and (self.dt.strftime("%d/%m") in self.holidays["ELFA"]):
-                            continue
-                        # manage message creation and send
-                        channel = self.bot.get_channel(
-                            self.config[self.events[event]['server']][self.events[event]['channel']])
-                        embed = self.responseHandler.embed_timed_event(self.events[event])      # create event embed
-                        await channel.send(embed=embed, content=self.events[event]['content'])  # send event message
+                # switch for event types (Raspi python version 3.9.x do not allow match case)
+                if self.events[event]['type'] == 'delete':
+                    # purge channel content
+                    print(f'*   purging {self.events[event]["channel"]}')
+                    channel = self.bot.get_channel(
+                        self.config[self.events[event]['server']][self.events[event]['channel']])
+                    await channel.purge()
+                    print(f'*   {self.events[event]["channel"]} purged')
+                elif self.events[event]['type'] == 'message':
+                    # check if in a national holiday
+                    if self.dt.strftime("%d/%m") in self.holidays["holidays"]:
+                        continue
+                    # if CISA event, check for specific closure days
+                    elif (event.find("CISA") >= 0) and (self.dt.strftime("%d/%m") in self.holidays["CISA"]):
+                        continue
+                    # if ElFa event, check for specific closure days
+                    elif (event.find("ELFA") >= 0) and (self.dt.strftime("%d/%m") in self.holidays["ELFA"]):
+                        continue
+                    # manage message creation and send
+                    channel = self.bot.get_channel(
+                        self.config[self.events[event]['server']][self.events[event]['channel']])
+                    embed = self.responseHandler.embed_timed_event(self.events[event])      # create event embed
+                    await channel.send(embed=embed, content=self.events[event]['content'])  # send event message
+                else:
+                    print(f'*   event type not managed')
 
     # Semaphore for scheduled events handling task ------------------------------------------------------------------- #
     @timed_events_task.before_loop
