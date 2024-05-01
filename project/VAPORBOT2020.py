@@ -281,6 +281,7 @@ class VAPORBOT2020:
                         self.config[self.events[event]['server']][self.events[event]['channel']])
                     embed = self.responseHandler.embed_timed_event(self.events[event])      # create event embed
                     await channel.send(embed=embed, content=self.events[event]['content'])  # send event message
+                    print(f'*   event sent on {self.events[event]["server"]}: {self.events[event]["channel"]}')
                 else:
                     print(f'*   event type not managed')
 
