@@ -12,7 +12,7 @@
     "minutes": [ 0, 0 ]
   },
 
-  "event_COFFEE": {
+  "event_COFFEE_WORK": {
     "server": "cipolle",
     "channel": "coffee_channel",
     "type": "message",
@@ -21,19 +21,6 @@
     "data": "https://c.tenor.com/iDy78BQ8324AAAAC/anime-smell.gif",
     "content": "@everyone",
     "iso_weekdays": [ 1, 2, 3, 4, 5 ],
-    "hours": [ 9, 15 ],
-    "minutes": [ 0, 0 ]
-  },
-
-  "event_COFFEE_ANGS": {
-    "server": "cipolle",
-    "channel": "coffee_channel",
-    "type": "message",
-    "title": "(っ´ω`)ﾉ(╥ω╥) A N G S  I ' M  H E R E ヽ(￣ω￣(。。 )ゝ",
-    "desc": "Your determination is remarkable. \n I'll always be here for you ♡( ◡‿◡ )",
-    "data": "https://c.tenor.com/qGn2vL8tTMUAAAAC/yuri-reina-kousaka.gif",
-    "content": "<@910082054484537345>",
-    "iso_weekdays": [ 6, 7 ],
     "hours": [ 9, 15 ],
     "minutes": [ 0, 0 ]
   },
@@ -101,31 +88,5 @@
     "iso_weekdays": [ 1, 2, 3, 4, 5 ],
     "hours": [ 17 ],
     "minutes": [ 35 ]
-  },
-
-  "event_VAPORDEV_CISA": {
-    "server": "cipolle",
-    "channel": "debug_channel",
-    "type": "message",
-    "title": "T E S T   0 1",
-    "desc": "On time events test 1",
-    "data": "https://media1.tenor.com/m/aEBQX-PoSmcAAAAC/anime-lab.gif",
-    "content": "",
-    "iso_weekdays": [ 1, 2, 3, 4, 5 ],
-    "hours": [ 25 ],
-    "minutes": [ 0 ]
-  },
-
-  "event_VAPORDEV_ELFA": {
-    "server": "cipolle",
-    "channel": "debug_channel",
-    "type": "message",
-    "title": "T E S T   0 2",
-    "desc": "On time events test 2",
-    "data": "https://media1.tenor.com/m/aEBQX-PoSmcAAAAC/anime-lab.gif",
-    "content": "",
-    "iso_weekdays": [ 6, 7 ],
-    "hours": [ 25 ],
-    "minutes": [ 0 ]
   }
 }

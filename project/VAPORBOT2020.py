@@ -276,6 +276,11 @@ class VAPORBOT2020:
                     # if ElFa event, check for specific closure days
                     elif (event.find("ELFA") >= 0) and (self.dt.strftime("%d/%m") in self.holidays["ELFA"]):
                         continue
+                    # if common WORK event, check for specific closure days
+                    elif ((event.find("WORK") >= 0) and
+                          (self.dt.strftime("%d/%m") in self.holidays["ELFA"]) and
+                          (self.dt.strftime("%d/%m") in self.holidays["CISA"])):
+                        continue
                     # manage message creation and send
                     channel = self.bot.get_channel(
                         self.config[self.events[event]['server']][self.events[event]['channel']])
