@@ -51,7 +51,7 @@
     "minutes": [ 30 ]
   },
 
-  "event_LUNCH": {
+  "event_LUNCH_WORK": {
     "server": "cipolle",
     "channel": "general_channel",
     "type": "message",
