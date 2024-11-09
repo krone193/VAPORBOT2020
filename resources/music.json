@@ -159,5 +159,24 @@
         "https://c.tenor.com/6-oOTCHm_Y8AAAAC/depressed-anime.gif"
       ]
     }
+  },
+
+    "elio": {
+    "name": "elio",
+    "desc": "servi della gleba",
+    "type": "music",
+    "data": [
+      "https://www.youtube.com/watch?v=FbPtvFxUb60&list=PLWSm3qNgmAEXE1QmE1spNlRH1_plIdHy1"
+    ],
+    "success": {
+      "desc": "░F░O░R░Z░A░ ░P░A░N░I░N░O░",
+      "data": [ ]
+    },
+    "error": {
+      "desc": "Brufolazzi, tapparella giù",
+      "data": [
+        "https://media1.tenor.com/m/EJWzq0WiI1YAAAAd/elio-forza-panino.gif"
+      ]
+    }
   }
 }
