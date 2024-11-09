@@ -161,12 +161,23 @@
     }
   },
 
-    "elio": {
-    "name": "elio",
-    "desc": "servi della gleba",
+  "elio": {
+    "name": "samaga_hukapan",
+    "desc": "quality Italian music",
     "type": "music",
     "data": [
-      "https://www.youtube.com/watch?v=FbPtvFxUb60&list=PLWSm3qNgmAEXE1QmE1spNlRH1_plIdHy1"
+      "https://www.youtube.com/watch?v=FbPtvFxUb60",
+      "https://www.youtube.com/watch?v=EnUHdlSJe8E",
+      "https://www.youtube.com/watch?v=g6i3JTF8-tA",
+      "https://www.youtube.com/watch?v=Hz9wfqnV7Wc",
+      "https://www.youtube.com/watch?v=AFW81wHXcbE",
+      "https://www.youtube.com/watch?v=836Ed5FKfos",
+      "https://www.youtube.com/watch?v=kgpxvjw0-Nk",
+      "https://www.youtube.com/watch?v=xsnPRRNLvCk",
+      "https://www.youtube.com/watch?v=AA3hlLZhP5s",
+      "https://www.youtube.com/watch?v=vWzyoqWTPR0",
+      "https://www.youtube.com/watch?v=twElphe-1h4",
+      "https://www.youtube.com/watch?v=P1IqzelIGkk"
     ],
     "success": {
       "desc": "░F░O░R░Z░A░ ░P░A░N░I░N░O░",
