@@ -1,7 +1,7 @@
 # --- handleMusic.py ------------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 07/12/2023                                                                                           #
-# Last edit     : 20/12/2023                                                                                           #
+# Last edit     : 10/11/2024                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : class to manage YouTube reproduction on Discord's voice channels                                     #
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -15,6 +15,7 @@ from discord.ext import commands
 from yt_dlp import YoutubeDL
 # Python libraries --------------------------------------------------------------------------------------------------- #
 import asyncio
+import json
 # Project constants -------------------------------------------------------------------------------------------------- #
 import project.constants.dictionaries as dictionaries
 
@@ -49,6 +50,8 @@ class HandleMusic(commands.Cog):
     is_playing = False
     is_paused = False
     vc = None
+    playlist = json
+    playlistIndex: int
     ytdl: YoutubeDL
     loop: asyncio.AbstractEventLoop
 
@@ -59,7 +62,24 @@ class HandleMusic(commands.Cog):
         self.vc = None
         self.ytdl = YoutubeDL(dictionaries.YTDL_OPTIONS)
 
-    async def play_music(self, voice_channel, url: str) -> [any, bool]:
+    async def play_loop(self, voice_channel: discord.VoiceChannel, playlist: json, start: int) -> [any, bool]:
+        self.playlistIndex = start
+        self.playlist = playlist
+        # try to connect to voice channel
+        if self.vc is None or not self.vc.is_connected():
+            self.vc = await voice_channel.connect()
+            # in case we fail to connect
+            if self.vc is None:
+                return 'Could not connect to the voice channel', False
+        self.is_playing = True
+        self.loop = asyncio.get_event_loop()
+        data = await self.loop.run_in_executor(None, lambda: self.ytdl.extract_info(
+            self.playlist[self.playlistIndex], download=False))
+        self.vc.play(discord.FFmpegPCMAudio(data['url'], **dictionaries.FFMPEG_OPTIONS),
+                     after=lambda e: asyncio.run_coroutine_threadsafe(self.play_next(), self.loop))
+        return data, True
+
+    async def play_music(self, voice_channel: discord.VoiceChannel, url: str) -> [any, bool]:
         # try to connect to voice channel
         if self.vc is None or not self.vc.is_connected():
             self.vc = await voice_channel.connect()
@@ -73,7 +93,7 @@ class HandleMusic(commands.Cog):
         self.vc.play(discord.FFmpegPCMAudio(song, **dictionaries.FFMPEG_OPTIONS), after=self.signal_stream_end)
         return data, True
 
-    async def play(self, interaction: discord.Interaction, url: str) -> [any, bool]:
+    async def play(self, interaction: discord.Interaction, loop: bool,  queue: json, start: int) -> [any, bool]:
         try:
             voice_channel = interaction.user.voice.channel
         except:
@@ -83,7 +103,10 @@ class HandleMusic(commands.Cog):
         else:
             if self.is_playing:
                 await self.vc.disconnect()
-            return await self.play_music(voice_channel, url)
+            if loop:
+                return await self.play_loop(voice_channel, queue, start)
+            else:
+                return await self.play_music(voice_channel, queue[start])
 
     def signal_stream_end(self, error):
         self.is_playing = False
@@ -97,6 +120,20 @@ class HandleMusic(commands.Cog):
             fut.result()
         except:
             pass
+
+    async def play_next(self):
+        # increment index
+        self.playlistIndex += 1
+        if self.playlistIndex >= len(self.playlist):
+            self.playlistIndex = 0
+        # play new song
+        self.loop = asyncio.get_event_loop()
+        data = await self.loop.run_in_executor(None, lambda: self.ytdl.extract_info(
+            self.playlist[self.playlistIndex], download=False))
+        self.vc.play(discord.FFmpegPCMAudio(data['url'], **dictionaries.FFMPEG_OPTIONS),
+                     after=lambda e: asyncio.run_coroutine_threadsafe(self.play_next(), self.loop))
+        print('\n* event | music loop next')
+        print(f"*   now playing: {self.playlistIndex}")
 
     async def wait_end(self):
         if self.vc is not None:

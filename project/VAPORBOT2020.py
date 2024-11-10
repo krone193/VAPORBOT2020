@@ -1,7 +1,7 @@
 # --- VAPORBOT2020.py ------------------------------------------------------------------------------------------------ #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 22/11/2023                                                                                           #
-# Last edit     : 29/12/2023                                                                                           #
+# Last edit     : 10/11/2024                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : VAPORBOT2020, a Discord bot powered by aesthetic and nostalgia.                                      #
 #                 This file contains the main class for the bot, with all events, commands and loop tasks handling.    #
@@ -27,7 +27,7 @@
 #                           - pause video           -> implemented                                                     #
 #                           - resume video          -> implemented                                                     #
 #                           - auto-disconnect       -> implemented                                                     #
-#                           - queue management      -> missing                                                         #
+#                           - queue management      -> partial                                                         #
 #                       * deployed message                                                                             #
 #                           - send on trigger       -> missing                                                         #
 #                       * add activity and status                                                                      #

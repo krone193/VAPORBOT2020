@@ -1,7 +1,7 @@
 # --- handleCommand.py ----------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 # Date          : 08/12/2023                                                                                           #
-# Last edit     : 23/12/2023                                                                                           #
+# Last edit     : 10/11/2024                                                                                           #
 # Author(s)     : krone                                                                                                #
 # Description   : class to manage all type of bot slash commands                                                       #
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -124,6 +124,7 @@ class MoodCommands(SlashCommands):
 # -------------------------------------------------------------------------------------------------------------------- #
 class MusicCommands(SlashCommands):
     music_handle: handleMusic.HandleMusic
+    loop: bool
 
     # Init: pass a py json object as config -------------------------------------------------------------------------- #
     def __init__(self,
@@ -155,6 +156,7 @@ class MusicCommands(SlashCommands):
                                                 ephemeral=True,
                                                 delete_after=3)
         # switch between possible functions
+        self.loop = False
         if self.name == 'pause':
             message, success = await self.music_handle.pause()
             embed = self.manage_music_commands(interaction, success, message)
@@ -165,8 +167,13 @@ class MusicCommands(SlashCommands):
             message, success = await self.music_handle.disconnect()
             embed = self.manage_music_commands(interaction, success, message)
         else:
+            # check if loop command
+            if self.name == 'samaga_hukapan':
+                self.loop = True
+            # get random number
             self.rand = utils.get_random_index_within_data(self.rand, self.data)
-            result, success = await self.music_handle.play(interaction, self.data[self.rand])
+            # try to reproduce music
+            result, success = await self.music_handle.play(interaction, self.loop, self.data, self.rand)
             if success:
                 if len(self.success['data']) > 0:
                     self.sub_rand = utils.get_random_index_within_data(self.sub_rand, self.success['data'])
@@ -191,6 +198,7 @@ class MusicCommands(SlashCommands):
         print('*   command :', self.name)
         print('*   author  :', interaction.user.name)
         print('*   data    :', self.rand + 1, '/', len(self.data))
+        print('*   loop    :', self.loop)
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # --- End of file ---------------------------------------------------------------------------------------------------- #
