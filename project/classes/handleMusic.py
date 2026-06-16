@@ -89,6 +89,8 @@ class HandleMusic(commands.Cog):
         self.is_playing = True
         self.loop = asyncio.get_event_loop()
         data = await self.loop.run_in_executor(None, lambda: self.ytdl.extract_info(url, download=False))
+        if not data:
+            return data, False
         song = data['url']
         self.vc.play(discord.FFmpegPCMAudio(song, **dictionaries.FFMPEG_OPTIONS), after=self.signal_stream_end)
         return data, True
