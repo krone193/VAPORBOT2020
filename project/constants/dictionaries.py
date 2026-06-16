@@ -38,10 +38,6 @@ YTDL_OPTIONS = {
         'preferredquality': '192',
     }],
     'extractor_args': {
-        'youtube': {
-            'player_client': ['ios'],
-            'format': 'missing_pot',
-        },
         'extract-audio': True,
         'sleep-interval': 5,
         'sleep-requests': 1,
