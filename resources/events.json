@@ -25,32 +25,6 @@
     "minutes": [ 0, 0 ]
   },
 
-  "event_MORNING_ELFA": {
-    "server": "cipolle",
-    "channel": "general_channel",
-    "type": "message",
-    "title": "°˖✧◝(⁰▿⁰)◜✧˖°  H E L L O  °˖✧◝(⁰▿⁰)◜✧˖°",
-    "desc": "Let this positive energy fill your day with determination <3",
-    "data": "https://c.tenor.com/qb_jlqal_gcAAAAC/tenor.gif",
-    "content": "<@&1166642794375413801>",
-    "iso_weekdays": [ 1, 2, 3, 4, 5 ],
-    "hours": [ 8 ],
-    "minutes": [ 0 ]
-  },
-
-  "event_MORNING_CISA": {
-    "server": "cipolle",
-    "channel": "general_channel",
-    "type": "message",
-    "title": "°˖✧◝(⁰▿⁰)◜✧˖°  H E L L O  °˖✧◝(⁰▿⁰)◜✧˖°",
-    "desc": "Let this positive energy fill your day with determination <3",
-    "data": "https://c.tenor.com/phH0IQwbox8AAAAC/i-got-this-anime.gif",
-    "content": "<@&975732345099403365>",
-    "iso_weekdays": [ 1, 2, 3, 4, 5 ],
-    "hours": [ 8 ],
-    "minutes": [ 30 ]
-  },
-
   "event_LUNCH_WORK": {
     "server": "cipolle",
     "channel": "general_channel",
@@ -62,31 +36,5 @@
     "iso_weekdays": [ 1, 2, 3, 4, 5 ],
     "hours": [ 12 ],
     "minutes": [ 30 ]
-  },
-
-  "event_BYE_ELFA": {
-    "server": "cipolle",
-    "channel": "general_channel",
-    "type": "message",
-    "title": "o(≧▽≦)o ☆  E L F A  ☆～('▽^人)",
-    "desc": "Another day has passed, see ya and love to all of you :3",
-    "data": "https://c.tenor.com/Rf5v6glMta8AAAAC/hey-waves.gif",
-    "content": "<@&1166642794375413801>",
-    "iso_weekdays": [ 1, 2, 3, 4, 5 ],
-    "hours": [ 17 ],
-    "minutes": [ 0 ]
-  },
-
-  "event_BYE_CISA": {
-    "server": "cipolle",
-    "channel": "general_channel",
-    "type": "message",
-    "title": "o(≧▽≦)o ☆  C I S A  ☆～('▽^人)",
-    "desc": "Another day has passed, see ya and love to all of you :3",
-    "data": "https://media.tenor.com/FSK1EksixakAAAAC/thumbs-up-anime.gif",
-    "content": "<@&975732345099403365>",
-    "iso_weekdays": [ 1, 2, 3, 4, 5 ],
-    "hours": [ 17 ],
-    "minutes": [ 35 ]
   }
 }
